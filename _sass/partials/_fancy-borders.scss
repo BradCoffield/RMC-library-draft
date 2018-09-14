@@ -1,0 +1,16 @@
+.fancy-border-container {
+    border: 1px solid $brown_logo_light;
+    border-radius: 5px;
+    h2 {
+      margin-bottom: 0px;
+      margin-top: -2rem;
+      background: white;
+    //   width: 130px;
+      margin-left: -2px;
+      
+    }
+  }
+  #featured-special-collections-1 h2 { width: 130px;}
+  #start-your-research-1 h2{width:320px;margin-left: 3rem;}
+  #start-your-research-2 h2{width:320px;margin-left: 3rem;}
+  #start-your-research-2 {border-left:0px;border-right:0px;border-bottom: 0px;border-radius: 0px;}
