@@ -1,0 +1,22 @@
+<div id="amu-search-bar">
+    <div class="row">
+        <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+                <!-- <h2>Start here!</h2> -->
+            <div id="amu-search-bar-interior">
+                
+                <form action="https://wrlc-amu.primo.exlibrisgroup.com/discovery/search?" enctype="application/x-www-form-urlencoded; charset=utf-8" id="simple" method="get" name="searchForm" onsubmit="searchPrimo()" style="margin:0;"><!-- Customizable Parameters --><input name="vid" type="hidden" value="01WRLC_AMU:prod"> <input name="search_scope" type="hidden" value="MyInst_and_CI"> <input name="mode" type="hidden" value="basic"> <!-- Fixed parameters --> <input name="displayMode" type="hidden" value="full"> <input name="bulkSize" type="hidden" value="10"> <input name="highlight" type="hidden" value="true"> <input name="dum" type="hidden" value="true"> <input id="primoQuery" name="query" type="hidden"> <input name="displayField" type="hidden" value="all"> <!-- Enable this if "Expand My Results" is enabled by default in Views Wizard --> <input name="pcAvailabiltyMode" type="hidden" value="true">
+                <div class="col-xs-12 col-sm-7"><label class="sr-only" for="primoQueryTemp">Search Input:</label> <input class="form-control" id="primoQueryTemp" placeholder="Enter search term(s)" type="text" value="">
+                <p style="margin-top: 5px; margin-bottom: 0;"><a href="https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/100End_User_Help/005Performing_Basic_Searches_in_Primo_VE"><img src="/img/help-circular-button-of-interface-with-question-mark.svg" alt="" class="question-svg"> <span class="sr-only">Help Icon</span></em>Learn how to get the most out of your search.</a></p>
+                </div>
+                <div class="col-xs-12 col-sm-3"><label class="sr-only" for="search_profile">Where would you like to search:</label>
+                <div class="styled-select"><select class="form-control" id="search_profile" name="tab"><option selected="selected" value="Everything">Everything</option><option value="LibraryCatalog">AU Library Catalog</option><option value="CentralIndex">Articles</option><option value="CourseReserves">Course Reserves</option><option value="MediaColl">Films &amp; Media</option><option value="Music">Music</option><option value="ArchivesSpecialColl">Archives &amp; Special Collections</option><option value="Digital_Reposetory">AU Digital Research Archive</option> </select></div>
+                <p style="margin-top: 5px; margin-bottom: 0;display: flex;align-items: center;"><a href="https://wrlc-amu.primo.exlibrisgroup.com/discovery/search?vid=01WRLC_AMU:prod&amp;lang=en&amp;sortby=rank"><em class="icon ion-information-circled ion-fw"><img src="/img/help-circular-button-of-interface-with-question-mark.svg" alt="" class="question-svg"><span class="sr-only">Help Icon</span></em>What is this? </a></p>
+                </div>
+                <div class="col-xs-12 col-sm-2"><button class="btn btn-primary btn-block no-margin" id="go" onclick="searchPrimo()" type="submit">Search</button>
+                <p style="margin-top: 5px; margin-bottom: 0;"><a href="https://wrlc-amu.primo.exlibrisgroup.com/discovery/search?vid=01WRLC_AMU:prod&amp;lang=en&amp;sortby=rank&amp;mode=advanced"><em class="icon ion-ios-search-strong ion-fw"><span class="sr-only">Search Icon</span></em>Adv. search</a></p>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

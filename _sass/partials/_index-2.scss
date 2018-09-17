@@ -1,0 +1,33 @@
+#get-started2, #todays-hours2 {
+    margin-top: 5rem;
+}
+.question-svg {
+    margin-left: 1rem;
+    width: 25px;
+     
+}
+#get-started2 .row {
+    border: 1px solid $brown-homepagebig;
+    // border-radius: 15px;
+    h3 {margin-bottom: 0px;}
+}
+
+ 
+.new-h3 {
+    // background: $brown-homepagebig;
+    padding: 4rem 0;
+    color: white!important;
+    background: $brown_logo_dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#todays-hours2 {
+    background: green;
+    text-align: right;
+    padding: .5rem 0;
+}
+#some-db {
+    border: 1px solid black;
+}

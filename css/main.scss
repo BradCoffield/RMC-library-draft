@@ -3,6 +3,11 @@
 
 @import "partials/variables.scss";
 @import "partials/fancy-borders.scss";
+@import "partials/index.scss";
+@import "partials/index-2.scss";
+
+
+
 body {
   font-size: 16px;
   padding-bottom: 15rem;
@@ -10,130 +15,29 @@ body {
 .center {
   text-align: center;
 }
-#todays-hours-block {
-  border-bottom: 1px solid $brown_logo_light;
-  border-radius: 5px;
-  h3 {
-    margin-bottom: 0px;
-  } // justify-content: center; // * {height: 100%;background: green;margin: 1px;}
+
+// AMU SEARCH BAR START
+
+#amu-search-bar{
+  border: 1px solid gray;
+  background-color: #333;
+  // background-image: url('/img/131206_RMC_G0022709.jpg');
+  height: 200px;
+  // display: flex;
+  // align-items: center;
+
 }
-.flexy {
+
+#amu-search-bar-interior {
+  background: #d9dada;
+  height: 14rem;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-}
-#todays-hours-actual-hours {
-  display: flex;
-  align-items: center;
-  height: 5rem;
-  font-size: 16px;
-  margin: 5px 0px 0px 15px;
-}
-#todays-hours-details {
-  font-size: 14px;
-}
-#power-search-1 {
-  h2 {
-    margin: 1rem 0px;
-  }
-  input {
-    align-self: center;
-    margin-left: 1.5rem;
-  }
-}
-.marg-top-1 {
-  margin-top: 1rem;
-}
-.library-search-1 {
-  background: $brown_alt-1;
-}
-.sub-links {
-  font-size: 1.1rem;
-  justify-content: flex-end;
-  a {
-    padding: 5px;
-  }
-}
-.heading-sub-text {
-  font-size: 1.25rem !important;
-  font-style: italic;
-  padding-left: 1rem;
-}
-#databases-block-1 {
-  border: 1px solid $brown_logo_light;
-  border-radius: 5px;
-  margin-top: 4rem;
-  h2 {
-    margin-bottom: 0px;
-    margin-top: -2rem;
-    background: white;
-    width: 170px;
-    margin-left: -2px;
-    
-  }
-}
-ul  {
-  list-style-type: none;
-}
-.library-pseudoheading {
-  font-size: 2rem !important;
-  // font-weight: bold;
-  // font-style: italic;
-  border-bottom: 1px solid $brown_alt-1;
-  // background: $brown_alt-1;
-  padding: 9px;
-  // border-radius: 5px;
-}
-
-#quick-links-1 {
-  border: 1px solid $brown_logo_light;
-  border-radius: 5px;
-  // margin-top: 4rem;
-  h2 {
-    margin-bottom: 0px;
-    margin-top: -2rem;
-    background: white;
-    width: 110px;
-    margin-left: -2px;
-    
+.question-svg {width: 18px;margin-left:0px;margin-right: 3px;}
+  form a {
+    font-size: 13px;
   }
 }
 
-#featured-special-collections-1 ul {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;}
 
-a {text-decoration: none!important;}
-.row {padding: 3rem 0;}
-
-.image { 
-  position: relative; 
-  width: 100%; /* for IE 6 */
-  p {position: absolute; 
-    top: 80px; 
-    left: 0; 
-    width: 100%;
-  padding: 5px;
-background: rgba($color: $green-homepagebig, $alpha: .5)}
-}
-
-figcaption {background: rgba($color: $green-homepagebig, $alpha: .5)}
-figure {border: 2px solid rgba($color: $green-homepagebig, $alpha: .5);}
-
-figure {
-  // padding: 5px;
-  display: table;
-}
-
-figure img { 
-  display: block;
-}
-
-figcaption {
-  display: table-caption;
-  caption-side: bottom;
-  padding: 5px;
-}
-
- 
+// AMU SEARCH BAR END
