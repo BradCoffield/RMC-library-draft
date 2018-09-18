@@ -1,0 +1,43 @@
+// info pak
+.info-pak {
+    // height: 6rem;
+    background: fuchsia;
+    padding: 2rem 0px;
+    display: flex;
+    align-items: center;
+    // .quad-2 {background-color: $brown_alt-1}
+    .invert {
+      color: white;
+      font-family: "Roboto Condensed", sans-serif;
+      margin-bottom: 0px;
+    }
+    .invert:after {
+      border-bottom: 1px solid #333;
+      content: "";
+      display: block;
+      margin-left: 25%;
+      width: 50%;
+    }
+    .fa-info-circle{font-size: 1.5rem;}
+  }
+  #databases-ul {
+    margin: 0px; // text-align: ;
+    li {
+      margin: 1rem 0px;
+      button {
+        width: 200px;
+      }
+      select {
+        width: 200px;
+        text-align: center;
+      }
+    }
+  }
+  #db-feature-title {
+    font-size: 2rem;
+  }
+  #featured-title {
+    color: white;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+  } // INFO PAK END

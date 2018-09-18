@@ -1,0 +1,35 @@
+.info-pak-primo-long {
+
+    background: $green-lighter-2;
+    .info-pak-quotes {color:black;}
+    .flextasm {
+        display: flex;
+        align-items: center;
+        height: 170px;
+        justify-content: center;
+      } 
+    .invert {
+      color: white;
+      font-family: "Roboto Condensed", sans-serif;
+      margin-bottom: 0px;
+    }
+    // .invert:after {
+    //   border-bottom: 1px solid #333;
+    //   content: "";
+    //   display: block;
+    //   margin-left: 25%;
+    //   width: 50%;
+    // }
+    .fa-info-circle{font-size: 1.5rem;}
+    #featured-title {
+    color: white;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+  }
+}
+ul.category_filters {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  li { font-family: "Roboto Condensed", sans-serif;font-weight: normal; font-size: 14px; }
+}

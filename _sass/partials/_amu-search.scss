@@ -1,0 +1,22 @@
+   // AMU SEARCH BAR START
+   #amu-search-bar {
+    border: 1px solid gray;
+    background-color: #333; // background-image: url('/img/131206_RMC_G0022709.jpg');
+    height: 200px; // display: flex; // align-items: center;
+  }
+  #amu-search-bar-interior {
+    background: #d9dada;
+    height: 14rem;
+    display: flex;
+    align-items: center;
+    .question-svg {
+      width: 18px;
+      margin-left: 0px;
+      margin-right: 3px;
+    }
+    form a {
+      font-size: 13px;
+    }
+  }
+  // AMU SEARCH BAR END 
+  

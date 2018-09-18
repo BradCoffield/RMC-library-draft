@@ -2,40 +2,32 @@
 ---
 
 @import "partials/variables.scss";
-@import "partials/fancy-borders.scss";
+// @import "partials/fancy-borders.scss";
 @import "partials/index.scss";
 @import "partials/index-2.scss";
+@import "partials/amu-search.scss";
+@import "partials/info-pak-primo-long.scss";
+@import "partials/info-pak-square-databases.scss";
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.inline {display: inline;}
+
 body {
   font-size: 16px;
   padding-bottom: 15rem;
 }
 .center {
   text-align: center;
-} 
+}
 .italics {
-font-style: italic;}
-  
-  // info pak
-.info-pak {
-  // height: 6rem;
-  background: fuchsia;
-  padding: 2rem 0px;
-  display: flex;
-  align-items: center;
-  // .quad-2 {background-color: $brown_alt-1}
-  .invert {
-    color: white;
-    font-family: "Roboto Condensed", sans-serif;
-    margin-bottom: 0px;
-  }
-  .invert:after {
-    border-bottom: 1px solid #333;
-    content: "";
-    display: block;
-    margin-left: 25%;
-    width: 50%;
-  }
-  .fa-info-circle{font-size: 1.5rem;}
+  font-style: italic;
+} // quote icon
+.fa-quote-left {
+  margin-right: 5px;
+  font-size: 24px;
 }
 #databases-ul {
   margin: 0px; // text-align: ;
@@ -52,65 +44,25 @@ font-style: italic;}
 }
 #db-feature-title {
   font-size: 2rem;
-}
-#featured-title {
-  color: white;
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: bold;
-} // INFO PAK END // AMU SEARCH BAR START
-#amu-search-bar {
-  border: 1px solid gray;
-  background-color: #333; // background-image: url('/img/131206_RMC_G0022709.jpg');
-  height: 200px; // display: flex; // align-items: center;
-}
-#amu-search-bar-interior {
-  background: #d9dada;
-  height: 14rem;
-  display: flex;
-  align-items: center;
-  .question-svg {
-    width: 18px;
-    margin-left: 0px;
-    margin-right: 3px;
+} 
+ 
+//hours 3
+
+#todays-hours-block-3 {
+  
+  .todays-hours-actual-hours {
+    font-size: 1.9rem;
+    margin: 0px 1rem;
   }
-  form a {
-    font-size: 13px;
-  }
-}
-// AMU SEARCH BAR END // quote icon
-.fa-quote-left {
-  margin-right: 5px;
-  font-size: 24px;
+ 
 }
 
+//quick links
+.fa-external-link-alt {
+  font-size: 2.7rem;
+}
 
-//info pak square
-.info-pak-square {
-  background: goldenrod;
-  .invert {
-    color: white;
-    font-family: "Roboto Condensed", sans-serif;
-    margin-bottom: 0px;
-  }
-  .invert:after {
-    border-bottom: 1px solid #333;
-    content: "";
-    display: block;
-    margin-left: 25%;
-    width: 50%;
-  }
-  .fa-info-circle{font-size: 1.5rem;}
-  #featured-title {
-  color: white;
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: bold;
-}
-#featured-title:after {
-  border-bottom: 1px solid #333;
-  content: "";
-  display: block;
-  margin-left: 40%;
-  width: 20%;
-}
-.row   {display: flex;align-items: center;}
+//library help 2
+#library-help-2 {
+  li {margin-bottom: .5rem;}
 }
