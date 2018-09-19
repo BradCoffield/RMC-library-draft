@@ -13,8 +13,19 @@
   padding: 0 !important;
   margin: 0 !important;
 }
+.notop{
+  padding-top:0 !important;
+  margin-top:0 !important;
+}
+.nosides{
+  padding-left:0!important;
+  padding-right:0!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
 .inline {display: inline;}
 
+ 
 body {
   font-size: 16px;
   padding-bottom: 15rem;
@@ -30,7 +41,8 @@ body {
   font-size: 24px;
 }
 #databases-ul {
-  margin: 0px; // text-align: ;
+  margin: 0px;
+  padding-left:0px; // text-align: ;
   li {
     margin: 1rem 0px;
     button {
@@ -66,3 +78,20 @@ body {
 #library-help-2 {
   li {margin-bottom: .5rem;}
 }
+.fa-compass {color:#00002f;}
+
+// #library-help-2-inline {
+//   h3{display: inline;}
+//   ul li {display: inline;}}
+
+
+
+//quick links 2
+#quick-links-2 {
+  ul li {margin-left: .5rem;}
+}
+
+.help-flex {display: flex;flex-wrap: wrap; align-items: center;height: 90px;
+  div {margin-right:1rem;}
+
+h3{margin-bottom: 8px;}}
