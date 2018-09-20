@@ -1,0 +1,25 @@
+.info-pak-cheatsheets {
+    ul {padding-left:0px;margin-bottom:0px;}
+    color:#111;
+    background: $brown-homepagebig;
+    .flextasm {
+      display: flex;
+      align-items: center;
+      height: 140px;
+      justify-content: center;
+    }  
+    .invert {
+      color: white;
+      font-family: "Roboto Condensed", sans-serif;
+      margin-bottom: 0px;
+    } // .invert:after { // border-bottom: 1px solid #333; // content: ""; // display: block; // margin-left: 25%; // width: 50%; // }
+    .fa-info-circle {
+      font-size: 1.5rem;
+    }
+    #featured-title {
+      color: white;
+      font-family: "Roboto Condensed", sans-serif;
+      font-weight: bold;
+    } // #featured-title:after { // border-bottom: 1px solid #333; // content: ""; // display: block; // margin-left: 40%; // width: 20%; // }
+  }
+  

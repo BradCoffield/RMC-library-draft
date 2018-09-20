@@ -1,31 +1,32 @@
 ---
 ---
 
-@import "partials/variables.scss";
-// @import "partials/fancy-borders.scss";
+@import "partials/variables.scss"; // @import "partials/fancy-borders.scss";
 @import "partials/index.scss";
 @import "partials/index-2.scss";
 @import "partials/amu-search.scss";
 @import "partials/info-pak-primo-long.scss";
 @import "partials/info-pak-square-databases.scss";
+@import "partials/new-books-1.scss";
+@import "partials/info-pak-cheatsheets.scss";
 
 .nopadding {
   padding: 0 !important;
   margin: 0 !important;
 }
-.notop{
-  padding-top:0 !important;
-  margin-top:0 !important;
+.notop {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
-.nosides{
-  padding-left:0!important;
-  padding-right:0!important;
-  margin-left:0!important;
-  margin-right:0!important;
+.nosides {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
-.inline {display: inline;}
-
- 
+.inline {
+  display: inline;
+}
 body {
   font-size: 16px;
   padding-bottom: 15rem;
@@ -42,7 +43,7 @@ body {
 }
 #databases-ul {
   margin: 0px;
-  padding-left:0px; // text-align: ;
+  padding-left: 0px; // text-align: ;
   li {
     margin: 1rem 0px;
     button {
@@ -56,70 +57,62 @@ body {
 }
 #db-feature-title {
   font-size: 2rem;
-} 
- 
-//hours 3
-
+} // hours 3
 #todays-hours-block-3 {
   display: flex;
-
-align-items: center;
-
-height: 100px;
-h3{margin-bottom: 0px!important;}
-  
+  align-items: center;
+  height: 100px;
+  h3 {
+    margin-bottom: 0px !important;
+  }
   .todays-hours-actual-hours {
     font-size: 1.9rem;
     margin: 5px 1rem 0px;
   }
- 
 }
-
-//quick links
+// quick links
 .fa-external-link-alt {
   font-size: 2.7rem;
-}
-
-//library help 2
+} // library help 2
 #library-help-2 {
-  li {margin-bottom: .5rem;}
+  li {
+    margin-bottom: 0.5rem;
+  }
 }
-.fa-compass {color:#00002f;}
-
-// #library-help-2-inline {
-//   h3{display: inline;}
-//   ul li {display: inline;}}
-
-
-
-//quick links 2
+.fa-compass {
+  color: #00002f;
+} // #library-help-2-inline { // h3{display: inline;} // ul li {display: inline;}} // quick links 2
 #quick-links-2 {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  // width: 261px;
-  
-  ul li {margin-left: .5rem;}
+  // display: flex; // flex-direction: column; // justify-content: center; // align-items: center; // width: 261px;
+  ul li {
+    margin-left: 0.5rem;
+  }
 }
-
-.mt-5p{margin-top: 5px;}
-.help-flex {display: flex;flex-wrap: wrap; align-items: center;height: inherit;height: 100px;
-  div {margin-right:1rem;}
-h3{margin-bottom: 0px;}}
-
-
-// info pak databases long
+.mt-5p {
+  margin-top: 5px;
+}
+.help-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: inherit;
+  height: 100px;
+  div {
+    margin-right: 1rem;
+  }
+  h3 {
+    margin-bottom: 0px;
+  }
+} // info pak databases long
 #info-pak-databases-long {
-  color: #222;
-  // background: goldenrod;
+  color: #222; // background: goldenrod;
   background: $brown_alt-2;
   .flextasm {
     display: flex;
     align-items: center;
     height: 170px;
     justify-content: center;
-  }  
+  }
   .invert {
     color: white;
     font-family: "Roboto Condensed", sans-serif;
@@ -134,48 +127,10 @@ h3{margin-bottom: 0px;}}
     font-weight: bold;
   }
 }
-
-
 // radio buttons
-
-.form-radio
-{
-     -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-     display: inline-block;
-     position: relative;
-     background-color: #f1f1f1;
-     color: #666;
-     top: 10px;
-     height: 30px;
-     width: 30px;
-     border: 0;
-     border-radius: 50px;
-     cursor: pointer;     
-     margin-right: 7px;
-     outline: none;
-}
-.form-radio:checked::before
-{
-     position: absolute;
-     font: 13px/1 'Open Sans', sans-serif;
-     left: 11px;
-     top: 7px;
-     content: '\02143';
-     transform: rotate(40deg);
-}
-.form-radio:hover
-{
-     background-color: #f7f7f7;
-}
-.form-radio:checked
-{
-     background-color: #f1f1f1;
-}
-label
-{
-     font: 300 16px/1.7 'Open Sans', sans-serif;
-     color: #666;
-     cursor: pointer;
+label {
+  color: black;
+  font-weight: normal;
+  font-family: "Roboto Condensed", sans-serif;
+  cursor: pointer;
 } 
