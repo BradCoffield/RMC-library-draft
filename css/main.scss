@@ -10,6 +10,7 @@
 @import "partials/new-books-1.scss";
 @import "partials/info-pak-cheatsheets.scss";
 
+ul {padding-left:0px!important;margin-bottom:0px!important;}
 .nopadding {
   padding: 0 !important;
   margin: 0 !important;
@@ -134,3 +135,8 @@ label {
   font-family: "Roboto Condensed", sans-serif;
   cursor: pointer;
 } 
+
+.archives-item {
+   img {max-width: 350px;}
+   
+}
