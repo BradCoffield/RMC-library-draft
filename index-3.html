@@ -4,13 +4,35 @@ layout: basic-layout
 ---
 <div class="container bodyContent">
     <div class="row ">
-        <div class="col-lg-8">
-            {%include info-pak-primo-long-1.html%}
-            <div class="col-lg-12">{%include todays-hours-3.html%}</div>
+
+        {%include info-pak-primo-long.html%}
+
+        <div class="col-xs-12 col-sm-4">
+            <div class="testing ">
+                <div>
+                    <div style="margin-bottom:2rem">
+                        <h5>
+                            <i class="far fa-clock "></i> Today's Hours:
+                        </h5> <span class="todays-hours-actual-hours">7:30am
+                            - 11pm</span>
+                    </div>
+                    <div>
+                        <h5>
+                            <i class="far fa-question-circle"></i>Get&nbsp;Research&nbsp;Help:
+                        </h5>
+                        <div class="mt-5p"><i class="far fa-envelope"></i> <a style="text-decoration:none;color: inherit;"
+                                href="mailto:library@rocky.edu">library@rocky.edu</a></div>
+                      <!--   <div>|</div> -->
+                        <div class="mt-5p"><i class="fas fa-phone"></i> 406-657-1087</div><!--  <div>|</div> -->
+                        <div class="mt-5p"><i class="far fa-grin"></i> In person</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        
-        
-        
-        <div class="col-lg-4">{%include info-pak-databases-narrow.html%}</div>
+    </div>
+        <div class="col-md-4"><div class="testing2">
+            {%include quick-links-2.html%}
+        </div></div> {%include info-pak-square-databases.html%}
     </div>
 </div>
