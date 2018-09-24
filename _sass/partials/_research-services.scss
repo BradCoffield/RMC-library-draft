@@ -1,0 +1,20 @@
+//1
+.swiper-container {margin-top: 1rem!important;}
+.research-services-1 {
+    h2{border-bottom: 1px solid $green-lighter}
+    // background: green!important;
+    ul li a {
+        background: $green-lighter-2;
+        padding: 1rem;
+        border-radius: 5px;
+        width: 240px;
+        color: white;
+        font-family: $serif;
+        font-size: 1.8rem;
+         
+    }
+    ul li {
+        margin: 0 .5rem 2rem .5rem;
+     
+    }
+}
