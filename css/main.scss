@@ -178,3 +178,18 @@ label {
   #hours-2, #hours-1 {font-family: $serif;}
   #hours-1{font-weight: bold;}
 }
+
+.picture-bar {
+  width: 100%;
+  height: 335px;
+  background-image: url(/img/img-bar-1.jpg);
+ 
+  .picture-bar-quote {
+    background-color: rgba($color: #fff, $alpha: .5);
+    font-size: 3rem;
+    max-width: 70rem;
+    padding: 2rem;
+    .attribution {font-size:2rem;}
+  }
+  
+}
