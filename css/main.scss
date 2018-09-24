@@ -181,8 +181,9 @@ label {
 
 .picture-bar {
   width: 100%;
-  height: 335px;
-  background-image: url(/img/img-bar-1.jpg);
+  height: 274px;
+  background-image: url('/img/img-bar-2.jpg');
+  background-color: $green-lighter-2;
  
   .picture-bar-quote {
     background-color: rgba($color: #fff, $alpha: .5);
