@@ -84,7 +84,7 @@ body {
   color: #00002f;
 } // #library-help-2-inline { // h3{display: inline;} // ul li {display: inline;}} // quick links 2
 #quick-links-2 {
-  // display: flex; // flex-direction: column; // justify-content: center; // align-items: center; // width: 261px;
+  h5{margin-bottom: 1rem;}// display: flex; // flex-direction: column; // justify-content: center; // align-items: center; // width: 261px;
   ul li {
     margin-left: 0.5rem;
   }
@@ -157,4 +157,11 @@ label {
   justify-content: center;
   // text-align: center;
   h5 {font-size: 2.1rem;margin-bottom: .5rem;}
+}
+
+.fake-indent {
+  margin-left: 2.8rem;
+}
+.fake-indent-2 {
+  margin-left: 2.6rem;
 }
