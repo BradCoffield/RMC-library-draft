@@ -32,7 +32,7 @@ ul {padding-left:0px!important;margin-bottom:0px!important;}
 }
 body {
   font-size: 16px;
-  padding-bottom: 15rem;
+  // padding-bottom: 15rem;
 }
 .center {
   text-align: center;
@@ -93,7 +93,8 @@ body {
 }
 
 #quick-links-3{
-   
+   li {margin-bottom:.5rem;
+  margin-left: 1.8rem;}
 }
 
 .mt-5p {
