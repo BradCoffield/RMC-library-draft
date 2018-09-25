@@ -173,7 +173,7 @@ label {
   margin-bottom: 1rem;
   text-align: center;
   padding: 1rem;
-  width: 25rem;
+  width: 28rem;
   float: right;
   #hours-2, #hours-1 {font-family: $serif;}
   #hours-1{font-weight: bold;}
@@ -186,11 +186,18 @@ label {
   background-color: $green-lighter-2;
  
   .picture-bar-quote {
+    .fa-quote-right, .fa-quote-left {
+      font-size: 2rem!important;
+    }
     background-color: rgba($color: #fff, $alpha: .5);
     font-size: 3rem;
     max-width: 70rem;
     padding: 2rem;
-    .attribution {font-size:2rem;}
+    .attribution {font-size:1.5rem;font-style: italic;font-family: $serif;}
   }
   
+}
+
+.fa-quote-right, .fa-quote-left {
+  font-size: 24px!important;
 }

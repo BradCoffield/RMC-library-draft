@@ -1,5 +1,6 @@
 // new books1
 #new-books-1 {
+  margin-top: 2rem;
   .book-cover {
     box-shadow: 0px 0px 2px darkgray;
   } // background: grey;
@@ -29,7 +30,7 @@
 }
 
 .content .content-overlay {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   position: absolute;
   height: 99%;
   width: 100%;
