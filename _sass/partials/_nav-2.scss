@@ -1,9 +1,53 @@
-#nav-2{background-color: gray; display:flex;justify-content:space-between;
+#nav-2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: $green-wanna-transparent;
+  background-image: $noise;
   #library-nav-links {
-      
-  }
-    ul li {display: inline}
-    #todays-hours-nav {
-      
+    align-self: center;
+    font-family: $sans-serif;
+    ul li {
+      font-size: 1.8rem;
+      display: inline;
+      cursor: pointer;
+      padding: 1rem;
+      padding: 1rem;
+      .fa-chevron-right {
+        font-size: 1.2rem;
+        color: $brown-homepagebig;
+        margin-right: 3px;
+      }
+      :hover,
+      :focus {
+        border-bottom: 3px solid $green_logo;
+        color: inherit;
+      }
+      a {
+        color: #111;
+        // font-weight: 700;
+
+        text-transform: uppercase; 
+      }
     }
+  }
+}
+
+#hours-teensy-for-nav {
+  background-image: $noise;
+  background-color: rgba($color: #396847, $alpha: 0.1);
+  // margin-bottom: 1rem;
+  text-align: center;
+  padding: 1rem;
+  width: 28rem;
+  float: right;
+  #hours-2,
+  #hours-1 {
+    font-family: $sans-serif;
+    color:#111;
+  }
+  #hours-1 {
+    font-weight: bold;
+  }
+  .fa-clock {color: #111;}
 }
