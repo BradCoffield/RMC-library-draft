@@ -72,3 +72,20 @@ ul.category_filters {
 .category-label {
   margin-left: 10px;
 }
+
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+  box-shadow:none;
+  -webkit-box-shadow:none; 
+  border-color:#cccccc; 
+ }
+ select#search_profile {
+   font-size: 14px;
+   width: 100%;
+ }
+
+ #adv-search-link{
+   float: right;
+   margin-top: 5px;
+   a {color:#222;font-size: 12px;text-align: right;}
+ }
