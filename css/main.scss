@@ -234,6 +234,17 @@ label {
   color: #111;
   background-image: $noise;
 }
+#greenlong-narrow {
+  background-color: rgba($color: #396847, $alpha: .1);
+  // margin-top: 1rem;
+  margin-bottom: 1rem;
+  // text-align: center;
+  padding: 1rem;
+  // max-width: 560px;
+  font-family: $sans-serif;
+  color: #111;
+  background-image: $noise;
+}
 
 #greenlongtall {
     background-color: rgba($color: #396847, $alpha: .1);
@@ -290,6 +301,24 @@ label {
 
   .mb-1r {margin-bottom: 1rem;}
 }
+#quick-links-greeny-new {
+
+
+// .fa-compass {color: $green_logo}
+
+  background-image: $noise;
+    background-color: rgba($color: #396847, $alpha: .1);
+    margin-bottom: 1rem;
+    text-align: left;
+     padding: 1rem;
+     // max-width: 560px;
+     font-family: $sans-serif;
+     color: #111;
+     background-image: $noise;
+    
+
+  .mb-1r {margin-bottom: 1rem;}
+}
 
 #nav-1{
   // background: $green-lighter-2;
@@ -321,3 +350,4 @@ label {
 .no-top {
   padding-top: 0px;
 }
+.lil{font-size: 14px; a {font-size: 14px} i {font-size: 14px;}}
