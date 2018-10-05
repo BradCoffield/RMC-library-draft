@@ -1,0 +1,60 @@
+#databases-AZ {
+  // h3 {border-left: 5px solid $green-wanna-transparent;}
+  h2 {
+    margin-bottom: 1.7rem;
+  }
+  
+  .fa-external-link-alt,
+  .fa-link {
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+    margin-bottom: 0.2rem;
+  }
+  color: #333;
+}
+
+.database-li {
+    margin-bottom: 4.5rem;
+  .database-description {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin-bottom: .5rem;
+  }
+  h5 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem !important;
+  }
+  // background: yellow;
+}
+
+.database-list-resourcetype {
+  li {
+    display: inline;
+    color: #777;
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    font-family: $sans-serif;
+    // box-shadow: 0px 0px 5px #555;
+    padding: 0.5rem 0.75rem 0.5rem 0rem;
+    // border-radius: 5px;
+  }
+}
+
+.actual-az-links {
+  li {
+    display: inline;
+    padding: 0 0.5rem;
+  }
+  margin-bottom: 3rem !important;
+  // margin-top: 0rem !important;
+}
+.alphabet-li {
+    border-bottom: 1px solid #333;
+    margin-right: 2rem;
+    font-size: 2.4rem!important;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    .back-to-top {font-size: 1.2rem;float: right;font-weight: normal}
+}
+.alpha-anchor {color: #333!important;}
