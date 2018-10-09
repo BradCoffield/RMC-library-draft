@@ -44,7 +44,8 @@
 .actual-az-links {
   li {
     display: inline;
-    padding: 0 0.5rem;
+    padding: 0 0.5rem;font-size:1.5rem;
+    a {font-weight: bold;font-size: 1.7rem;}
   }
   margin-bottom: 3rem !important;
   // margin-top: 0rem !important;
