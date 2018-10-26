@@ -1,21 +1,32 @@
 ---
 layout: basic-layout
 ---
-<div class="container bodyContent">
+<div class="container bodyContent" id="index-tri">
     <div class="row ">
         {%include nav-2.html%}
     </div>
     <div class="row" style="padding-top:0px;">
-        <div class="col-xs-12 col-lg-6">
-            {%include info-pak-primo-square-vertical.html%}
+        <div class="col-xs-12 col-lg-5 mb-eh">
+            {%include info-pak-primo-square-vertical-tri.html%}
         </div>
-        <div class="col-xs-12 col-lg-6 ">
-        	{%include info-pak-square-databases-true-all-vertical.html%}
+        <div class="col-xs-12 col-lg-5 mb-eh">
+            {%include info-pak-square-databases-true-all-vertical.html%}
+        </div>
+        <div class="col-xs-12 col-lg-2">  {%include research-help-greenlong-narrow.html%}
+{%include quick-links-greeny-new.html%}
+
         </div>
     </div>
+</div>
+<div class="container-fluid library-wide-bar">
     <div class="row">
-        <h2>Featured Collections</h2>{%include featured-collections-cards.html%}
+        <div class="container bodyContent">
+            <h2>Featured Collections</h2>
+        </div>
+        {%include featured-collections-cards.html%}
     </div>
+</div>
+    <div class="container bodyContent">
     <div class="row no-top">
         <h2>New Books</h2>{%include new-books-1.html%}
     </div>
