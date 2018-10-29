@@ -81,7 +81,11 @@ ul.category_filters {
  }
  select#search_profile {
    font-size: 14px;
-   width: 100%;
+  //  width: 100%;
+   width: 150px;
+font-size: 1.4rem;
+height: 37px;
+margin-bottom: 5px;
  }
 
  #adv-search-link{
@@ -179,4 +183,7 @@ ul.category_filters {
    float: right;
    margin-top: 5px;
    a {color:#222;font-size: 12px;text-align: right;}
+ }
+ input#srch-term, .input-group-btn button{
+   height: 37px;
  }

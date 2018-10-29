@@ -39,6 +39,9 @@
 }
 
 #hours-teensy-for-nav {
+  display: flex;
+align-items: center;
+justify-content: center;
   background-image: $noise;
   background-color: rgba($color: #396847, $alpha: 0.1);
   // margin-bottom: 1rem;
