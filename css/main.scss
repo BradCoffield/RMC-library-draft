@@ -411,7 +411,7 @@ label {
  }
  .right {float: right;}
  .mt-little {margin-top:5px;margin-left: 8px;}
- .library-navbar {margin-bottom: 0px!important;
+ .library-navbar {margin-bottom: 0px!important;background:transparent;border:0px solid white;
 // this is to make the navigation on small screens not have weird top padding
   .navbar-collapse.in {
     padding-top: 0px; 
@@ -422,3 +422,21 @@ label {
  margin: 0 auto 0 !important; 
 }
 }
+.lets-get-fun {
+  background-color: $green-wanna-transparent;
+  background-image: $noise;margin-bottom:2rem!important; 
+}
+
+//rolling my own visibility classes, f it
+@media (max-width: 992px) { 
+  .hide-all-but-large {
+    display: none;
+  }
+ 
+ }
+ @media (min-width:992px){
+   .show-below-large {
+     display: none;
+   }
+ 
+ }

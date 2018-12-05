@@ -2,11 +2,18 @@
 layout: basic-layout
 ---
 <div class="container bodyContent" id="index-tri">
-    <div class="row ">
-        {%include nav-3.html%}
-    </div>
-    <div class="row" style="padding-top:0px;">
+    <div class="row lets-get-fun hide-all-but-large">
         
+        <div class="col-xs-12 col-md-8">{%include nav-4.html%}</div>
+        <div class="col-xs-12 col-md-4"><div style="display:block;margin:0 auto;">
+            {%include todays-hours-teensy-for-nav.html%}
+        </div></div>
+        
+    </div>
+    <div class="row">{%include nav-3.html%}</div>
+    <div class="row" style="padding-top:0px;">
+        <div class="col-xs-12 show-below-large">hi</div>
+        <div class="col-xs-12 show-below-large" style="margin-bottom:2rem;">{%include todays-hours-teensy-for-nav.html%}</div>
         <div class="col-xs-12 col-lg-5 mb-eh">
             {%include info-pak-primo-square-vertical-tri.html%}
         </div>
