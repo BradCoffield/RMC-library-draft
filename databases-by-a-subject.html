@@ -2,16 +2,28 @@
 layout: basic-layout
 ---
 <div class="container bodyContent" id="databases-AZ">
-        <div class="row nobottom">
-            <div class="col-xs-12">
-                <h2><a name="top" class="be-plain">Health &amp; Human Performance Databases</a></h2>
-                <div class="row notop">
-                        <section class="col-xs-12 col-lg-9">hi</section>
-                        <section class="col-xs-12 col-lg-3 databases-sidebar"> <div class="get-research-help-sidebar">
-                                <!-- <h3>Get Research Help</h3> -->
-                                {%include research-help-greenlong-narrow.html%}{%include quick-links-greeny-new.html%}
-                            </div></section></div>
-    
+    <div class="row nobottom">
+        <div class="col-xs-12">
+            <h2><a name="top" id="HHP" class="be-plain subjectName">Health &amp; Human Performance Databases</a></h2>
+            <div class="row notop">
+                <section class="col-xs-12 col-lg-9">
+                    <ul id="excellent_for">
+<li class="alphabet-li">Best Bets</li>
+                    </ul>
+                    <ul id="good_for">
+                            <li class="alphabet-li">Additional Resources</li>
+                    </ul>
+                </section>
+                <section class="col-xs-12 col-lg-3 databases-sidebar">
+                    <div class="get-research-help-sidebar">
+
+                        {%include research-help-greenlong-narrow.html%}{%include quick-links-greeny-new.html%}
+                    </div>
+                </section>
             </div>
+
         </div>
-        </div>
+    </div>
+</div>
+{%include firebase-setup.html%}
+<script src="/js/query-for-subject.js"></script>
