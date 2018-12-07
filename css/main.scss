@@ -576,8 +576,58 @@ label {
   background: transparent;
   border: 0px solid white;
   font-family: $sans-serif;
+
+  .dropdown .fa-chevron-right {
+    transition: all .2s;transition-timing-function: ease;
+  }
+  .dropdown.open .fa-chevron-right{
+    transform: rotate(90deg);   
+  }
+
+// Animate the hamburger lines
+.navbar-toggle {
+  border: none;
+  background: transparent !important;
+}
+.navbar-toggle:hover {
+  background: transparent !important;
+}
+.navbar-toggle .icon-bar {
+  width: 22px;
+  transition: all 0.2s;
+}
+.navbar-toggle .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+.navbar-toggle .middle-bar {
+  opacity: 0;
+}
+.navbar-toggle .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+.navbar-toggle.collapsed .top-bar {
+  transform: rotate(0);
+}
+.navbar-toggle.collapsed .middle-bar {
+  opacity: 1;
+}
+.navbar-toggle.collapsed .bottom-bar {
+  transform: rotate(0);
+}
   
-  
+  .icon-bar {
+    background-color: $green_logo!important;
+    
+  }
+  .navbar-toggle {
+    color: #333;
+    font-size: 14px; 
+    .left {
+      margin-top: 5px;
+    }
+  }
    
   
 
@@ -597,6 +647,15 @@ label {
   background-color: $green-wanna-transparent;
   background-image: $noise;
   margin-bottom: 2rem !important;
+  padding: 1rem!important;
+}
+
+.container-fluid.ehhhh {
+  background-color: $green-wanna-transparent;
+  background-image: $noise;
+  .dropdown-menu {
+    background-color: white;
+  }
 }
 
 //rolling my own visibility classes, f it
