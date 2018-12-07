@@ -659,14 +659,14 @@ label {
 }
 
 //rolling my own visibility classes, f it
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .hide-all-but-large {
     display: none;
   }
 
 }
 
-@media (min-width:992px) {
+@media (min-width:1200px) {
   .show-below-large {
     display: none;
   }
