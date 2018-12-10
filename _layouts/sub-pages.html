@@ -1,0 +1,38 @@
+{%include head.html%}
+<body>
+ {%include header.html%}
+
+ 
+<div class="page-content">
+        <div class="container bodyContent"  >
+ 
+           
+                <div class="row lets-get-fun hide-all-but-large">
+            
+                    <div class="col-xs-12 col-md-8">{%include nav-4.html%}</div>
+                    <div class="col-xs-12 col-md-4">{%include todays-hours-teensy-for-nav.html%}</div>
+                </div>
+            
+                
+                
+                <div class="row" style="padding-top:0px;">
+                    <div class="col-xs-12 show-below-large">{%include nav-5.html%}</div>
+                    <div class="col-xs-12 show-below-large" style="margin-top:.1rem;margin-bottom:2rem;">{%include
+                        todays-hours-teensy-for-nav.html%}</div>
+                    <div class="col-xs-12 col-lg-10 mb-eh">
+                        {{content}}
+                    </div>
+                    
+                    <div class="col-xs-12 col-lg-2"> {%include research-help-greenlong-narrow.html%}
+                        {%include quick-links-greeny-new.html%}
+            
+                    </div>
+                </div>
+                
+   </div>
+</div>
+   {%include footer.html%}  
+
+ 
+</body>
+</html>
