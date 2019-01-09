@@ -681,9 +681,34 @@ label {
 .mb1 {
   margin-bottom: 1rem!important;
 }
-.pad-left-2 {
+.pad-left-1 {
   padding-left: 1rem!important;
+}
+.pad-left-2 {
+  padding-left: 2rem!important;
 }
 .little-lightbox {
   box-shadow:1px 1px 3px lightgray;padding:1rem;
+}
+.library-subpages-h4 {
+  font-size: 2rem!important;
+  font-family: $sans-serif;
+} 
+.reg-ul {
+  padding-left: 60px!important;
+  list-style-type: disc;
+  li {
+    padding: .5rem 0px;
+  }
+}
+.library-subpages-subtitles {
+  margin-top: -1rem!important;
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+.mt-3r {
+  margin-top: 3rem!important;
+}
+.mt-5r {
+  margin-top: 5rem!important;
 }
