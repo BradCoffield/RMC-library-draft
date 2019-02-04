@@ -184,6 +184,7 @@ body {
     color: white;
     font-family: "Roboto Condensed", sans-serif;
     margin-bottom: 0px;
+    
   }
 
   // .invert:after { // border-bottom: 1px solid #333; // content: ""; // display: block; // margin-left: 25%; // width: 50%; // }
@@ -717,4 +718,73 @@ label {
 text-decoration: underline!important;
 font-weight: bold;
 font-size: 1.6rem;
+}
+.invert {
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  
+}
+
+//pure css tooltip : https://codepen.io/cristina-silva/pen/XXOpga
+.tooltip-toggle {
+  cursor: pointer;
+  position: relative;
+
+  svg {
+    height: 18px;
+    width: 18px;
+  }
+  
+  //Tooltip text container
+  &::before {
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    background-color: #2B222A;
+    border-radius: 5px;
+    color: #fff;
+    content: attr(aria-label); //This pulls in the text from the element with the tooltip
+    padding: 1rem;
+    text-transform: none;
+    transition: all 0.5s ease;
+    width: 160px;
+  }
+
+  //Tooltip arrow
+  &::after {
+    position: absolute;
+    top: -12px;
+    left: 9px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #2B222A;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+    margin-left: -5px;
+    width: 0;
+  }
+  
+  //Setting up the transition
+  &::before,
+  &::after {
+    color: #efefef;
+    font-family: monospace;
+    font-size: 16px;
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+  }
+  
+  //Triggering the transition
+  &:focus::before,
+  &:focus::after,
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+    transition: all 0.75s ease;
+  }
 }
