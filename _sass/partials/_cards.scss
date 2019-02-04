@@ -55,7 +55,7 @@
     -webkit-transition: background-color 1s , color 1s; /* For Safari 3.1 to 6.0 */
     transition: background-color 1s , color 1s;
     min-height: 20px;
-    background-color: $green_logo;
+    background-color: $palette-1;
     color: #ffffff;
     // border-radius: 4px;
     text-align: center;
@@ -67,7 +67,7 @@
   }
   .featured-collections-cards-wrap .blue-button:hover{
     background-color: #dadada;
-    color: $green-logo;
+    color: $palette-1;
     
   }
   @media (max-width: 768px) {
@@ -78,10 +78,10 @@
   }
 
   #more-collections-enticement {
-      margin-top: 24px;
-      a {color: #00582c;font-family: $serif;
-      &:hover, &:focus{border-bottom: 3px solid #00582c;
-        color: inherit;}
-      }
-      font-size: 18px;
+      // margin-top: 24px;
+      a {color: #00582c;font-family: $serif;margin-left: 1rem;}
+      // // &:hover, &:focus{border-bottom: 3px solid #00582c;
+      // //   color: inherit;}
+      // }
+      // font-size: 18px;
   }
