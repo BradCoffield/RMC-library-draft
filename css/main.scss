@@ -338,8 +338,10 @@ label {
 }
 
 .get-help-head {
-  font-size: 1.9rem !important;
+  font-size: 1.8rem !important;
   margin-bottom: 5px;
+  text-transform: uppercase;
+  display: block;
 }
 
 // #greenlongtall {
@@ -458,21 +460,24 @@ label {
 .no-top {
   padding-top: 0px;
 }
-
+.twotwo{color: #222!important;}
 .lil {
-  font-size: 16px;
+  font-size: 16px!important;
+  
+ 
 
   a {
-    font-size: 16px
+    font-size: 16px!important
   }
 
   i {
-    font-size: 16px;
+    font-size: 16px!important;
   }
 }
  
 #index-tri #db-feature-title {
   font-size: 1.6rem !important;
+  color: #222;
 }
 
 #index-tri #primo-pak-searchwrap {
@@ -719,6 +724,7 @@ text-decoration: underline!important;
 font-weight: bold;
 font-size: 1.6rem;
 }
+
 .invert {
   color: white;
   font-family: "Roboto Condensed", sans-serif;
