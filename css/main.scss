@@ -748,36 +748,38 @@ font-size: 1.6rem;
   &::before {
     position: absolute;
     top: -80px;
-    left: -80px;
-    background-color: #2B222A;
+    left: -180px;
+    background-color: #d1d4d2;
     border-radius: 5px;
-    color: #fff;
+    color: #222;
+    font-family: $serif;
     content: attr(aria-label); //This pulls in the text from the element with the tooltip
-    padding: 1rem;
+    padding: 2rem;
     text-transform: none;
     transition: all 0.5s ease;
-    width: 160px;
+    width: 280px;
   }
 
-  //Tooltip arrow
-  &::after {
-    position: absolute;
-    top: -12px;
-    left: 9px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #2B222A;
-    content: " ";
-    font-size: 0;
-    line-height: 0;
-    margin-left: -5px;
-    width: 0;
-  }
+  // //Tooltip arrow
+  // &::after {
+  //   position: absolute;
+  //   top: -12px;
+  //   left: 9px;
+  //   border-left: 5px solid transparent;
+  //   border-right: 5px solid transparent;
+  //   border-top: 5px solid #fff;
+  //   content: " ";
+  //   font-size: 0;
+  //   line-height: 0;
+  //   margin-left: -5px;
+  //   width: 0;
+  // }
   
   //Setting up the transition
   &::before,
   &::after {
-    color: #efefef;
+    color: #333;
+    // color: #efefef;
     font-family: monospace;
     font-size: 16px;
     opacity: 0;
