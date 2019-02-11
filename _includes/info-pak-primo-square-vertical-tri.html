@@ -34,16 +34,40 @@
                 <div class="col-sm-12">
                     <form role="search" style="margin-top: -.44rem">
                         <div class="input-group add-on">
-                            <input class="form-control" placeholder=" " name="srch-term" id="srch-term"
+                            <input class="form-control" placeholder=" " id="1549903767743" name="CatalogSearch"
                                 type="text">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                                <button class="btn btn-default search_link1549903767743" type="submit"><i class="fas fa-search"></i></button>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            $("button.search_link1549903767743").on("click",function1549903767743);
+                            function function1549903767743(){
+                            var target = "https://rocky-primo.hosted.exlibrisgroup.com/primo-explore/search?vid=01TRAILS_ROCKY&institution=01TRAILS_ROCKY&tab=default_tab&indx=1&bulkSize=10&srt=relevance&sortField=default&search_scope=01TRAILS_ROCKY&query=any,contains,"+document.getElementById('1549903767743').value;
+                            window.open(target,'_blank');
+                            }
+                            </script>
                     </form>
                     <div id="adv-search-link">
                         <a href="">Advanced Search</a>
                     </div>
+                    <!-- <div>
+                        <form>
+                            <fieldset>
+                               
+                                    <label for="1549903767743">Keywords: </label>
+                                    
+                                    <input type="text" id="1549903767743"><a class="search_link1549903767743"><button>Search</button></a>
+                        <script type="text/javascript">
+                        $("a.search_link1549903767743").on("click",function1549903767743);
+                        function function1549903767743(){
+                        var target = "https://rocky-primo.hosted.exlibrisgroup.com/primo-explore/search?vid=01TRAILS_ROCKY&institution=01TRAILS_ROCKY&tab=default_tab&indx=1&bulkSize=10&srt=relevance&sortField=default&search_scope=01TRAILS_ROCKY&query=any,contains,"+document.getElementById('1549903767743').value;
+                        window.open(target,'_blank');
+                        }
+                        </script>
+                            </fieldset>
+                        </form>
+                    </div> -->
                 </div>
 
                 <!-- <div class="input-group">
