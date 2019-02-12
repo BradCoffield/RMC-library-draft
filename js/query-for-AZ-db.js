@@ -13,7 +13,33 @@ Will need to see if things stay in alpha order at this point or if I'll need to 
 Then I can get to appending. I tested that the other day and it worked.
 */
 
-let lettersINeed = ["A", "B", "C","D","E","F","G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W"];
+
+// Because these are all uppercased only databases that's name field begins with uppercase are being shown.
+let lettersINeed = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W"
+];
 
 let listA = document.getElementById("databases-A");
 
@@ -22,13 +48,11 @@ class AlphabeticalDatabase {
     this.letter = letter;
     this.dbData = dbData;
   }
-  
+
   appendIt() {
-      
-     
-    const contentTypesMap = this.dbData.content_types.map(el => `<li>${el}</li>`);
- 
- 
+    const contentTypesMap = this.dbData.content_types.map(
+      el => `<li>${el}</li>`
+    );
 
     let dbNode = document.getElementsByName(`${this.letter}${this.letter}`);
     dbNode[0].insertAdjacentHTML(
@@ -44,7 +68,6 @@ class AlphabeticalDatabase {
   }
 }
 
-
 databasesRef.get().then(function(querySnapshot) {
   querySnapshot.forEach(function(doc) {
     let name = doc.data().name;
@@ -53,8 +76,6 @@ databasesRef.get().then(function(querySnapshot) {
     let description = doc.data().description;
     let url = doc.data().url;
     let dbObj = { name, content_types, description, url };
-// MAYBE WHAT I NEED TO DO IN ORDER TO SORT IS THE BELOW FOR EACH CREATES AN ARRAY AND THEN IT'S SORTED AND THEN USE THAT ARRAY TO BUILD THE OBJECT
-//.....or i could change it from after end to before end....
     lettersINeed.forEach(function(letter) {
       if (name.charAt(0) == letter) {
         let newThing = new AlphabeticalDatabase(letter, dbObj);
@@ -63,5 +84,3 @@ databasesRef.get().then(function(querySnapshot) {
     });
   });
 });
-
- 
