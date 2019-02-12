@@ -797,3 +797,12 @@ font-size: 1.6rem;
     transition: all 0.75s ease;
   }
 }
+
+#equestrian-periodicals li, #equestrian-books li {
+  display: inline-block;
+  margin-right: 3rem;
+  img {
+    width: 150px;
+    height: 190px;
+  }
+}
