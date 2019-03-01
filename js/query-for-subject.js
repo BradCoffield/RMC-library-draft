@@ -59,9 +59,13 @@ proxyRef.get().then(function(querySnapshot){
     console.log(doc.id, " => ", doc.data());
     let name = doc.data().name;
     console.log(name);
+    let url = "";
+    if (doc.data().use_proxy){
+      url = `${theProxyUrl}${doc.data().url}`
+    } else {url = doc.data().url;}
     let content_types = doc.data().content_types;
     let description = doc.data().description;
-    let url = doc.data().url;
+ 
     let dbObj = { name, content_types, description, url };
     let newThing = new SubjectDatabase("excellent_for", dbObj);
     newThing.appendIt();
@@ -76,7 +80,10 @@ proxyRef.get().then(function(querySnapshot){
     console.log(name);
     let content_types = doc.data().content_types;
     let description = doc.data().description;
-    let url = doc.data().url;
+    let url = "";
+    if (doc.data().use_proxy){
+      url = `${theProxyUrl}${doc.data().url}`
+    } else {url = doc.data().url;}
     let dbObj = { name, content_types, description, url };
     let newThing = new SubjectDatabase("good_for", dbObj);
     newThing.appendIt();
