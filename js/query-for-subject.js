@@ -31,7 +31,7 @@ class SubjectDatabase {
         theNode.insertAdjacentHTML(
             "beforeend",
             ` <li class="database-li">
-                <h5><a href="${this.dbData.url}">${this.dbData.name}</a></h5>
+                <h5><a href="${this.dbData.url}" target="_blank">${this.dbData.name}</a></h5>
                 <p class="database-description">${this.dbData.description}</p>
                 <ul class="database-list-resourcetype">
                 ${contentTypesMap.join("")}
