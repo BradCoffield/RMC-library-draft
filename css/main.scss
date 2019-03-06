@@ -520,6 +520,7 @@ label {
 }
 
 @media (min-width: 768px) {
+
   .info-pak-subtitle {
     font-size: 16px;
     padding: 0px;
@@ -668,8 +669,17 @@ label {
   }
 }
 
+
+@media (max-width: 430px){
+  .info-pak-square-all-vertical #databases-ul li {
+    margin: 1rem 0px;
+    display: block!important;
+}
+}
+
 //rolling my own visibility classes, f it
 @media (max-width: 1200px) {
+
   .hide-all-but-large {
     display: none;
   }
