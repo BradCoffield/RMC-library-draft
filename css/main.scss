@@ -675,6 +675,9 @@ label {
     margin: 1rem 0px;
     display: block!important;
 }
+#new-books-1 .new-books-li {
+  width: 125px;
+}
 }
 
 //rolling my own visibility classes, f it
@@ -818,4 +821,11 @@ font-size: 1.6rem;
     width: 150px;
     height: 190px;
   }
+}
+
+#off-campus-databases-info-block{
+  .fa-info-circle{font-size: 18px;}
+  background-color: $palette-4;
+  padding: 2rem 1rem 1px!important;
+p {font-size: 14px;}
 }
