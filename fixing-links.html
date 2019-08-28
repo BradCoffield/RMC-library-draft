@@ -1,0 +1,575 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<div class="page-content" id="library-things">
+       <div class="container bodyContent"  >
+
+          
+               <div class="row lets-get-fun hide-all-but-large">
+           
+                   <div class="col-xs-12 col-md-8"> 
+<nav class="navbar navbar-default library-navbar">
+   <div class="container-fluid">
+   
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <div id="library-nav-links"><ul class="nav navbar-nav">
+       
+       <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fas fa-chevron-right"></i></span> Research Tools
+       </a>
+       <ul class="dropdown-menu">
+       <li><a href="https://rocky-primo.hosted.exlibrisgroup.com/primo-explore/search?vid=01TRAILS_ROCKY&lang=en_US&fromRedirectFilter=true">Power Search</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/research-databases">Research Databases</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/citation-guides">Citation Guides &amp; Tools</a></li>
+       <li><a href="http://journalfinder.wtcox.com/rocky/">Journal Finder</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/interlibrary-loan">Interlibrary Loan</a></li>
+       </ul>
+       </li>
+       <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fas fa-chevron-right"></i></span> Special Collections
+       </a>
+       <ul class="dropdown-menu">
+       <li><a href="https://www.rocky.edu/academics/library/course-reserves">Course Reserves</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/heritage-archives">Archives</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/new-books">New Books</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/popular-reading">Popular Reading</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/map-room">The Map Room</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/equestrian-collection">Equestrian Collection</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/childrens-books">Children's Books</a></li>
+       
+       
+       </ul>
+       </li>
+       <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fas fa-chevron-right"></i></span> About
+       </a>
+       <ul class="dropdown-menu">
+       <li><a href="https://www.rocky.edu/academics/library/library-hours">Library Hours</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-staff">Staff</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/about-library">About the Library</a></li>
+       </ul>
+       </li>
+       <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fas fa-chevron-right"></i></span> Help
+       </a>
+       <ul class="dropdown-menu">
+    
+       <li><a href="https://www.rocky.edu/academics/library/contact-us">Contact Us</a></li>
+       
+       </ul>
+       </li>
+       </ul></div>
+     
+     </div><!-- /.navbar-collapse -->
+ 
+   </div><!-- /.container-fluid -->
+ </nav></div>
+                   <div class="col-xs-12 col-md-4"> 
+
+<div id="hours-teensy-for-nav">
+ <a href="https://www.rocky.edu/academics/library/library-hours">
+   <!-- <i class="far fa-clock "></i>  -->
+   <img src="https://www.rocky.edu/sites/default/files/time.png" style="width:14px;height:14px;margin-bottom:3px;" alt="">
+   <span id="hours-1">Today's Hours:</span>
+   <span
+     id="hours-grid"
+     class="hours-grid"
+     style="color:#111;font-family: 'Roboto Condensed', sans-serif;"
+   >
+     7:30am - 11pm</span
+   ></a
+ >
+</div>
+<!--lodash--><script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<!--moment--><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script>
+ //====set up date/time variables (moments.js)
+
+ const date = moment();
+
+ //format it so it's in plain english
+ //e.g. Thursday, March 30, 2017
+ const today = date.format("dddd, MMMM D, YYYY");
+
+ //append today's date to empty div
+ $("#todays-date").append(today);
+
+ //create variable to hold utc-style of today's date (moments.js)
+ const utc = date.format("YYYY-MM-DD");
+
+ //create variables for calendar address and api key
+ const calAddress =
+   "rocky.edu_1dp49oqqq33o04tsoeq7khug3g@group.calendar.google.com";
+ const keyAPI = "AIzaSyDv3H-pWVsL00sLTeeZvWSas6L-85RivQw";
+
+ //inject today's date in YYYY-MM-DD format to the API URL
+ //this url returns only the events scheduled for today
+ const googleCal = `https://www.googleapis.com/calendar/v3/calendars/${calAddress}/events?singleEvents=true&timeMin=${utc}T01:00:00-04:00&timeMax=${utc}T23:59:59-04:00&key=${keyAPI}`;
+
+ //===========MAIN PLUGIN FUNCTION=============
+ //takes response data from API (see const response below) and runs it
+ const displaySchedule = data => {
+   //returns an array that holds all calendar data for specific day (lodash.js)
+   const libraries = _.filter(response.responseJSON.items);
+
+   //sorted by reverse alphabetical order (lodash.js)
+   const sorted = _.orderBy(libraries, "summary", "desc");
+
+   //and placed in a table
+   let tableHTML;
+   let weOpen = null;
+
+   //loops through each event in the sorted libraries array/google calendar events (lodash.js)
+   _.forEach(sorted, function(library) {
+     //if there is a dateTime key in the start and end of the calendar event
+     if (library.start.dateTime && library.end.dateTime) {
+       console.log("hihi ");
+
+       //takes given time string (ISO 8601), parses it to standard format, then returns formatted time (moments.js)
+       //e.g. "2017-03-30T21:00:00-04:00" -> "9 pm"
+       function timeChanger(time) {
+         const getDate = moment.parseZone(time);
+         const formatDate = getDate.format("hh:mma");
+         return formatDate;
+       }
+
+       //setting up variables to grab start and end times from the google calendar API
+       //put those times through time changer function
+       let startTime = timeChanger(library.start.dateTime);
+       let endTime = timeChanger(library.end.dateTime);
+
+       //creates table row for each event in the calendar array
+       //e.g. | Downtown | 8 am - 9 pm |
+       tableHTML = `${startTime} - ${endTime}`;
+       weOpen = `${startTime} - ${endTime}`;
+       console.log(weOpen);
+
+       //if there is no description in the event, skip it
+       //we occassionally have an employee add an event on accident, but they normally don't include a description; this skips that event
+     } else if (
+       (library.start.dateTime &&
+         library.end.dateTime &&
+         !library.description) ||
+       !library.description
+     ) {
+       console.log("eh");
+       return;
+
+       //otherwise, it's closed! (dateTime returns undefined)
+     } else {
+       tableHTML = `Closedd`;
+     }
+   }); //end of foreach loop
+
+   // tableHTML += '</tbody>';
+
+   //empty old schedule tbody (may be unnecessary, but you never know) and replace with new tbody
+   $(".hours-grid").empty();
+
+   if (weOpen != null) {
+     $(".hours-grid").append(weOpen);
+   } else $(".hours-grid").append("Closed");
+ }; //end display schedule function
+
+ //google calendar API request call
+ const response = $.getJSON(googleCal, displaySchedule);
+</script>
+</div>
+               </div>
+           
+               
+               
+               <div class="row" style="padding-top:0px;">
+                   <div class="col-xs-12 show-below-large"> 
+<nav class="navbar navbar-default library-navbar">
+ <div class="container-fluid ehhhh">
+   <div class="navbar-header">
+     
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2"
+       aria-expanded="false">
+       
+
+       <span class="sr-only">Toggle navigation</span>
+       <div class="left" style="font-size:18px;text-transform: uppercase">Library Navigation</div>
+       <!-- <div class="right mt-little">
+       <span class="icon-bar top-bar"></span>
+       <span class="icon-bar middle-bar"></span>
+       <span class="icon-bar bottom-bar"></span></div> -->
+     </button>
+      
+   
+   </div>
+
+
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+     <div id="library-nav-links"><ul class="nav navbar-nav">
+     
+     <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fas fa-chevron-right"></i></span> Research Tools
+     </a>
+     <ul class="dropdown-menu">
+       <li><a href="https://rocky-primo.hosted.exlibrisgroup.com/primo-explore/search?vid=01TRAILS_ROCKY&lang=en_US&fromRedirectFilter=true">Power Search</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/research-databases">Research Databases</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/citation-guides">Citation Guides &amp; Tools</a></li>
+       <li><a href="http://journalfinder.wtcox.com/rocky/">Journal Finder</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/interlibrary-loan">Interlibrary Loan</a></li>
+     </ul>
+     </li>
+     <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fas fa-chevron-right"></i></span> Special Collections
+     </a>
+     <ul class="dropdown-menu">
+       <li><a href="https://www.rocky.edu/academics/library/course-reserves">Course Reserves</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/heritage-archives">Archives</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/new-books">New Books</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/popular-reading">Popular Reading</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/map-room">The Map Room</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/equestrian-collection">Equestrian Collection</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-collections/childrens-books">Children's Books</a></li>
+     
+     
+     </ul>
+     </li>
+     <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fas fa-chevron-right"></i></span> About
+     </a>
+     <ul class="dropdown-menu">
+       <li><a href="https://www.rocky.edu/academics/library/library-hours">Library Hours</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/library-staff">Staff</a></li>
+       <li><a href="https://www.rocky.edu/academics/library/about-library">About the Library</a></li>
+  
+     </ul>
+     </li>
+     <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><i class="fas fa-chevron-right"></i></span> Help
+     </a>
+     <ul class="dropdown-menu">
+
+       <li><a href="https://www.rocky.edu/academics/library/contact-us">Contact Us</a></li>
+     
+     </ul>
+     </li>
+     </ul></div>
+     
+   </div><!-- /.navbar-collapse -->
+
+ </div><!-- /.container-fluid -->
+</nav></div>
+                   <div class="col-xs-12 show-below-large" style="margin-top:.1rem;margin-bottom:2rem;"> 
+
+<div id="hours-teensy-for-nav">
+ <a href="https://www.rocky.edu/academics/library/library-hours">
+   <!-- <i class="far fa-clock "></i>  -->
+   <img src="https://www.rocky.edu/sites/default/files/time.png" style="width:14px;height:14px;margin-bottom:3px;" alt="">
+   <span id="hours-1">Today's Hours:</span>
+   <span
+     id="hours-grid"
+     class="hours-grid"
+     style="color:#111;font-family: 'Roboto Condensed', sans-serif;"
+   >
+     7:30am - 11pm</span
+   ></a
+ >
+</div>
+<!--lodash--><script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<!--moment--><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script>
+ //====set up date/time variables (moments.js)
+
+ const date = moment();
+
+ //format it so it's in plain english
+ //e.g. Thursday, March 30, 2017
+ const today = date.format("dddd, MMMM D, YYYY");
+
+ //append today's date to empty div
+ $("#todays-date").append(today);
+
+ //create variable to hold utc-style of today's date (moments.js)
+ const utc = date.format("YYYY-MM-DD");
+
+ //create variables for calendar address and api key
+ const calAddress =
+   "rocky.edu_1dp49oqqq33o04tsoeq7khug3g@group.calendar.google.com";
+ const keyAPI = "AIzaSyDv3H-pWVsL00sLTeeZvWSas6L-85RivQw";
+
+ //inject today's date in YYYY-MM-DD format to the API URL
+ //this url returns only the events scheduled for today
+ const googleCal = `https://www.googleapis.com/calendar/v3/calendars/${calAddress}/events?singleEvents=true&timeMin=${utc}T01:00:00-04:00&timeMax=${utc}T23:59:59-04:00&key=${keyAPI}`;
+
+ //===========MAIN PLUGIN FUNCTION=============
+ //takes response data from API (see const response below) and runs it
+ const displaySchedule = data => {
+   //returns an array that holds all calendar data for specific day (lodash.js)
+   const libraries = _.filter(response.responseJSON.items);
+
+   //sorted by reverse alphabetical order (lodash.js)
+   const sorted = _.orderBy(libraries, "summary", "desc");
+
+   //and placed in a table
+   let tableHTML;
+   let weOpen = null;
+
+   //loops through each event in the sorted libraries array/google calendar events (lodash.js)
+   _.forEach(sorted, function(library) {
+     //if there is a dateTime key in the start and end of the calendar event
+     if (library.start.dateTime && library.end.dateTime) {
+       console.log("hihi ");
+
+       //takes given time string (ISO 8601), parses it to standard format, then returns formatted time (moments.js)
+       //e.g. "2017-03-30T21:00:00-04:00" -> "9 pm"
+       function timeChanger(time) {
+         const getDate = moment.parseZone(time);
+         const formatDate = getDate.format("hh:mma");
+         return formatDate;
+       }
+
+       //setting up variables to grab start and end times from the google calendar API
+       //put those times through time changer function
+       let startTime = timeChanger(library.start.dateTime);
+       let endTime = timeChanger(library.end.dateTime);
+
+       //creates table row for each event in the calendar array
+       //e.g. | Downtown | 8 am - 9 pm |
+       tableHTML = `${startTime} - ${endTime}`;
+       weOpen = `${startTime} - ${endTime}`;
+       console.log(weOpen);
+
+       //if there is no description in the event, skip it
+       //we occassionally have an employee add an event on accident, but they normally don't include a description; this skips that event
+     } else if (
+       (library.start.dateTime &&
+         library.end.dateTime &&
+         !library.description) ||
+       !library.description
+     ) {
+       console.log("eh");
+       return;
+
+       //otherwise, it's closed! (dateTime returns undefined)
+     } else {
+       tableHTML = `Closedd`;
+     }
+   }); //end of foreach loop
+
+   // tableHTML += '</tbody>';
+
+   //empty old schedule tbody (may be unnecessary, but you never know) and replace with new tbody
+   $(".hours-grid").empty();
+
+   if (weOpen != null) {
+     $(".hours-grid").append(weOpen);
+   } else $(".hours-grid").append("Closed");
+ }; //end display schedule function
+
+ //google calendar API request call
+ const response = $.getJSON(googleCal, displaySchedule);
+</script>
+</div>
+                   <div class="col-xs-12 col-lg-10 mb-eh">
+                           <br>
+                       <div class="library-subpage-content">
+                           <h2 id="Theatre Arts" class="be-plain subjectName">Theatre Arts Databases</h2>
+<div class="row notop">
+   <section class="col-xs-12  ">
+     <ul id="excellent_for">
+       <li class="alphabet-li">Best Bets</li>
+     </ul>
+     <ul id="good_for">
+       <li class="alphabet-li">Additional Resources</li>
+     </ul>
+   </section>
+ </div>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+<script>
+ // Initialize Firebase
+ var config = {
+   apiKey: "AIzaSyCDKrRaEVvKwz-TXwz2qnwov8yGXuP35Jk",
+   authDomain: "rmc-library-data.firebaseapp.com",
+   databaseURL: "https://rmc-library-data.firebaseio.com",
+   projectId: "rmc-library-data",
+   storageBucket: "rmc-library-data.appspot.com",
+   messagingSenderId: "30728362672"
+ };
+ firebase.initializeApp(config);
+</script>
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+<script>
+
+</script>
+<script>
+
+ firebase.initializeApp({
+   apiKey: 'AIzaSyCDKrRaEVvKwz-TXwz2qnwov8yGXuP35Jk',
+   authDomain: 'rmc-library-data.firebaseapp.com',
+   projectId: 'rmc-library-data'
+ });  
+ 
+ const db = firebase.firestore();
+ const settings = {timestampsInSnapshots: true };
+ db.settings(settings);
+ </script>
+ 
+
+<script src="/js/query-for-subject.js"></script>
+                       </div>
+                   </div>
+                   
+                   <div class="col-xs-12 col-lg-2"> 
+                       <!-- <div id="greenlong"><span class="bold"><i class="far fa-question-circle"></i> Get Help:&nbsp;&nbsp; </h3></span>
+   <i class="far fa-envelope"></i>&nbsp;<a style="text-decoration:none;color: inherit;" href="mailto:library@rocky.edu">library@rocky.edu</a>&nbsp;&nbsp;<i
+       class="fas fa-phone"></i>&nbsp;406-657-1087</i>&nbsp;&nbsp;<i class="far fa-grin"></i>&nbsp;In person</li>
+</div> -->
+
+<div id="greenlong-narrow">
+   <ul>
+       <li>
+           <span class=" get-help-head">
+               <!-- <i class="bold far fa-question-circle"></i>  -->
+               <img src="https://www.rocky.edu/sites/default/files/question-mark-on-a-circular-black-background.png" style="width:16px;height:16px;margin-bottom:2px;" class="iwishiwasanicon"alt="">
+               Get Help&nbsp;&nbsp;</span> </h3>
+       </li>
+       <li class="lil">
+           <!-- <i class="far fa-envelope  "></i>&nbsp; -->
+           <img src="https://www.rocky.edu/sites/default/files/envelope-of-white-paper.png" style="width:14px;height:14px" alt="" class="iwishiwasanicon">
+           <a class="twotwo"style="text-decoration:none;color: inherit;" href="mailto:library@rocky.edu">library@rocky.edu</a></li>
+      
+           <li class=" lil">
+               <!-- <i class="fas fa-phone  "></i>&nbsp; -->
+               <img src="https://www.rocky.edu/sites/default/files/telephone-handle-silhouette.png" style="width:14px;height:14px" class="iwishiwasanicon"alt="">
+               <span class="twotwo lil">406-657-1087</span></li>
+      
+           <li class=" lil">
+               <!-- <i class="far fa-grin  "></i>&nbsp; -->
+               <img src="https://www.rocky.edu/sites/default/files/smile.png" style="width:14px;height:14px" class="iwishiwasanicon"alt="">
+               <span class="twotwo lil">In person</span></li>
+   </ul>
+</div>
+                       <div id="quick-links-greeny-new">
+ <ul class="">
+   <li class=" get-help-head">
+     <img src="https://www.rocky.edu/sites/default/files/compass1.png" class="iwishiwasanicon" style="width:16px;height:16px;margin-bottom:1px"alt="">
+     Quick links
+   </li>
+   <li class="lil "><a href="https://www.rocky.edu/academics/library/interlibrary-loan">Interlibrary Loan</a></li>
+   <li class="lil"><a href="https://www.rocky.edu/academics/library/course-reserves"> Course Reserves</a></li>
+   <li class="lil"><a href="https://www.rocky.edu/academics/library/library-hours"> Library Hours</a></li>
+   <li class="lil"><a href="https://www.rocky.edu/academics/library/contact-library"> Contact Us</a></li>
+   <li class="lil"><a href="https://www.rocky.edu/academics/library/research-services">Research Services</a></li>
+
+   <li class="lil"><a href="https://www.rocky.edu/academics/library/citation-guides">Citation Guides</a></li>
+   <li class="lil"><a href="https://www.rocky.edu/academics/library/about-library""> About the library</a></li>
+ </ul>
+</div>
+
+           <!-- <div id="off-campus-databases-info-block">
+   <p><a href="/sub-pages/offcampus-database-access"><i class="fas fa-info-circle"></i> Access our databases from <br>off-campus</a></a></p>
+</div> -->
+<div id="off-campus-databases-info-block">
+   <li class=" get-help-head lil">
+      <img src="https://www.rocky.edu/sites/default/files/information-button.png" style="width:16px;height:16px;margin-bottom: 3px;" alt=""> Off-Campus?
+     </li>
+   <p>You will be prompted to login. Use your Rocky username, which is your email address without "@rocky.edu".</p>
+</div>
+<!-- <div id="off-campus-databases-info-block">
+   <p><i class="fas fa-info-circle"></i> You can access our databases from off-campus using your Rocky credentials (the same as for your email).</p>
+</div> -->
+
+
+                   </div>
+               </div>
+               <script>
+                 //Want to build something that I can write once and is smart enough to know what page is requesting it. I think hook into the H2's name field, which should
+                 //correspond to the syntax of the GF or EF entries in the database
+                 
+                 let databasesRef = db.collection("databases");
+                 let proxyRef = db.collection("proxyServerUrl");
+                 let theProxyUrl = "";
+                 
+                 const whichPageWeWorkingWith = document.querySelector(".subjectName").id;
+                 console.log(whichPageWeWorkingWith);
+                 
+                 class SubjectDatabase {
+                   constructor(quality, dbData) {
+                     this.quality = quality;
+                     this.dbData = dbData;
+                   }
+                 
+                   appendIt() {
+                     const contentTypesMap = this.dbData.content_types.map(
+                       el => `<li>${el}</li>`
+                     );
+                 
+                     let doIt = (theNode) => {
+                         theNode.insertAdjacentHTML(
+                             "beforeend",
+                             ` <li class="database-li">
+                                 <h5><a href="${this.dbData.url}" target="_blank">${this.dbData.name}</a></h5>
+                                 <p class="database-description">${this.dbData.description}</p>
+                                 <ul class="database-list-resourcetype">
+                                 ${contentTypesMap.join("")}
+                                      <ul>
+                                 </li>`
+                           );
+                     }
+                     if (this.quality === "excellent_for"){const dbNode = document.getElementById(`excellent_for`);doIt(dbNode)}
+                     if (this.quality === "good_for"){const dbNode = document.getElementById('good_for');doIt(dbNode)}
+                 
+                 
+                 
+                  
+                   }
+                 }
+                 proxyRef.get().then(function(querySnapshot){
+                   querySnapshot.forEach(function(doc) {
+                     theProxyUrl = doc.data().proxyURL;
+                   }
+                 )}).then(db.collection("databases")
+                 .where("excellentFor", "array-contains", `${whichPageWeWorkingWith}`)
+                 .get()
+                 .then(function(querySnapshot) {
+                   querySnapshot.forEach(function(doc) {
+                     console.log(doc.id, " => ", doc.data());
+                     let name = doc.data().name;
+                     console.log(name);
+                     let url = "";
+                     if (doc.data().use_proxy){
+                       url = `${theProxyUrl}${doc.data().url}`
+                     } else {url = doc.data().url;}
+                     let content_types = doc.data().content_types;
+                     let description = doc.data().description;
+                  
+                     let dbObj = { name, content_types, description, url };
+                     let newThing = new SubjectDatabase("excellent_for", dbObj);
+                     newThing.appendIt();
+                   });
+                 }).then(db.collection("databases")
+                 .where("goodFor", "array-contains", `${whichPageWeWorkingWith}`)
+                 .get()
+                 .then(function(querySnapshot) {
+                   querySnapshot.forEach(function(doc) {
+                     console.log(doc.id, " => ", doc.data());
+                     let name = doc.data().name;
+                     console.log(name);
+                     let content_types = doc.data().content_types;
+                     let description = doc.data().description;
+                     let url = "";
+                     if (doc.data().use_proxy){
+                       url = `${theProxyUrl}${doc.data().url}`
+                     } else {url = doc.data().url;}
+                     let dbObj = { name, content_types, description, url };
+                     let newThing = new SubjectDatabase("good_for", dbObj);
+                     newThing.appendIt();
+                   });
+                 }))
+                 
+                 )
+                 
+                 
+                 
+                 </script>
+               
+  </div>
+</div>

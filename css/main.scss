@@ -85,6 +85,7 @@ body {
     select {
       width: 200px;
       text-align: center;
+      margin-top: 1rem;
     }
   }
 }
@@ -587,6 +588,7 @@ label {
   background: transparent;
   border: 0px solid white;
   font-family: $sans-serif;
+  // height: 71px!important;
 
   .dropdown .fa-chevron-right {
     transition: all .2s;transition-timing-function: ease;
@@ -659,6 +661,7 @@ label {
   background-image: $noise;
   margin-bottom: 2rem !important;
   padding: 1rem 0px!important;
+  margin-top: -1rem!important;
 }
 
 .container-fluid.ehhhh {
@@ -828,4 +831,38 @@ font-size: 1.6rem;
   background-color: $palette-4;
   padding: 2rem 1rem 1px!important;
 p {font-size: 16px;font-family: $sans-serif;color: #222;}
+}
+
+
+//DRUPAL THINGS
+.content-title a {
+  color:#fff!important}
+  
+  .content-text a {
+  color:#fff!important}
+  #index-tri::before, #library-nav-links::before, #bs-example-navbar-collapse-1::before, #featured-title::before, 
+span::before {content:none!important}
+
+
+#library-things *::before{
+  content:none;}
+  
+  .row .rowHero {
+  padding:0px;}
+  
+  .containingRow{
+  padding:0px!important;}
+
+#block-system-main-menu {font-size:14px!important}
+
+
+.databases-browse-link {
+  text-align: center;
+}
+.databases-browse-link a {
+  color: white!important;
+  border-bottom: 1px dotted lightgray;
+  margin-right: 2rem;
+  margin-left: 2rem;
+
 }

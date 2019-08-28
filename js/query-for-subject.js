@@ -1,11 +1,3 @@
-// this works to get all databases that listed as excellent for English
-// db.collection("databases").where("excellent_for", "array-contains", "English").get().then(function(querySnapshot) {
-//     querySnapshot.forEach(function(doc) {
-//         // doc.data() is never undefined for query doc snapshots
-//         console.log(doc.id, " => ", doc.data());
-//     });
-// });
-
 //Want to build something that I can write once and is smart enough to know what page is requesting it. I think hook into the H2's name field, which should
 //correspond to the syntax of the GF or EF entries in the database
 

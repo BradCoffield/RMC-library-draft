@@ -1,55 +1,106 @@
 ---
 layout: basic-layout
 ---
+
 <div class="container bodyContent" id="index-tri">
- 
-    <!-- 
-    * Need 3 navs/hours.....
-    * A. Cellphone breakpoint = separated. collapsed nav, idk how to style right now
-    * B. Up till large breakpoint = separated. expanded nav, maybe centered text
-    * C. large+ = solved with two of them living in harmony.
--->
-<!-- this is C. the large+, solved -->
-    <div class="row lets-get-fun hide-all-but-large">
-
-        <div class="col-xs-12 col-md-8">{%include nav-4.html%}</div>
-        <div class="col-xs-12 col-md-4">{%include todays-hours-teensy-for-nav.html%}</div>
+  <div class="row lets-get-fun hide-all-but-large">
+    <div class="col-xs-12 col-md-8">{%include nav-4.html%}</div>
+    <div class="col-xs-12 col-md-4">
+      {%include todays-hours-teensy-for-nav.html%}
     </div>
+  </div>
 
-    
-    
-    <div class="row" style="padding-top:0px;">
-        <div class="col-xs-12 show-below-large">{%include nav-5.html%}</div>
-        <div class="col-xs-12 show-below-large" style="margin-top:.1rem;margin-bottom:2rem;">{%include
-            todays-hours-teensy-for-nav.html%}</div>
-        <div class="col-xs-12 col-lg-5 mb-eh">
-            {%include info-pak-primo-square-vertical-tri.html%}
-        </div>
-        <div class="col-xs-12 col-lg-5 mb-eh">
-            {%include info-pak-square-databases-true-all-vertical.html%}
-        </div>
-        <div class="col-xs-12 col-lg-2"> {%include research-help-greenlong-narrow.html%}
-            {%include quick-links-greeny-new.html%}
-
-        </div>
+  <div class="row" style="padding-top:0px;">
+    <div class="col-xs-12 show-below-large">{%include nav-5.html%}</div>
+    <div
+      class="col-xs-12 show-below-large"
+      style="margin-top:.1rem;margin-bottom:2rem;"
+    >
+      {%include todays-hours-teensy-for-nav.html%}
     </div>
+    <div class="col-xs-12 col-lg-5 mb-eh">
+      {%include info-pak-primo-square-vertical-tri.html%}
+    </div>
+    <div class="col-xs-12 col-lg-5 mb-eh">
+      {%include info-pak-square-databases-true-all-vertical.html%}
+    </div>
+    <div class="col-xs-12 col-lg-2">
+      {%include research-help-greenlong-narrow.html%} {%include
+      quick-links-greeny-new.html%}
+    </div>
+  </div>
 </div>
 <div class="container-fluid library-wide-bar">
-    <div class="row">
-        <div class="container bodyContent">
-            <h2>Featured Collections</h2>
-        </div>
-        {%include featured-collections-cards.html%}
+  <div class="row">
+    <div class="container bodyContent">
+      <h2>Featured Collections</h2>
     </div>
+    {%include featured-collections-cards.html%}
+  </div>
 </div>
 <div class="container bodyContent">
-    <div class="row no-top">
-        <div class="col-xs-12">
-            <h2>New Books</h2>{%include new-books-1.html%}
-        </div>
+  <div class="row no-top">
+    <div class="col-xs-12">
+      <h2>New Books</h2>
+      {%include new-books-1.html%}
     </div>
+  </div>
 </div>
 
- 
+{%include firebase-setup.html%}
+<script>
+  let databasesRef = db.collection("databases");
+  let proxyRef = db.collection("proxyServerUrl");
+  let theProxyUrl = "";
+  let result = [];
 
- 
+  proxyRef
+    .get()
+    .then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        theProxyUrl = doc.data().proxyURL;
+      });
+    })
+    .then(
+      databasesRef
+        .get()
+        .then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            //   console.log(doc.data());
+            const theURL = doc.data().url;
+            const theDescription = doc.data().description;
+            const name = doc.data().name;
+            const featureableState = doc.data().featurable;
+            const proxyUrlState = doc.data().use_proxy;
+            //    console.log(name, featureableState);
+
+            if (featureableState) {
+            //   console.log(name, theDescription, theURL);
+              result.push({
+                name: name,
+                description: theDescription,
+                url: theURL,
+                useProxy: proxyUrlState
+              });
+            }
+            
+          });
+        })
+        .then(function(a) {
+          let oneToDisplay = result[Math.floor(Math.random() * result.length)];
+          var onThePage = document.getElementById("db-featured");
+console.log(theProxyUrl)
+          if (oneToDisplay.useProxy) {
+            onThePage.innerHTML = ` <div id="featured-title">FEATURED</div> <span id="db-feature-title"><a href="${theProxyUrl}${oneToDisplay.url}" style="color:inherit;"
+                >${oneToDisplay.name}</a> 
+        </span>`;
+          } else {
+            onThePage.innerHTML = ` <div id="featured-title">FEATURED</div> <span id="db-feature-title"><a href="${oneToDisplay.url}" style="color:inherit;"
+                >${oneToDisplay.name}</a> 
+        </span>`;
+          }
+
+          console.log(oneToDisplay.name, oneToDisplay.proxyUrlState);
+        })
+    );
+</script>

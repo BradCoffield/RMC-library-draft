@@ -1,3 +1,6 @@
+//TODO: don't forget you pulled the link to this file from databases-AZ.html and just pasted it directly in for drupal reasons.
+
+
 let databasesRef = db.collection("databases");
 let proxyRef = db.collection("proxyServerUrl");
 let theProxyUrl = "";
