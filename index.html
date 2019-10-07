@@ -91,11 +91,11 @@ layout: basic-layout
           var onThePage = document.getElementById("db-featured");
 console.log(theProxyUrl)
           if (oneToDisplay.useProxy) {
-            onThePage.innerHTML = ` <div id="featured-title">FEATURED</div> <span id="db-feature-title"><a href="${theProxyUrl}${oneToDisplay.url}" style="color:inherit;"
+            onThePage.innerHTML = ` <div id="featured-title">FEATURED</div> <span id="db-feature-title"><a href="${theProxyUrl}${oneToDisplay.url}" target="_blank" style="color:inherit;"
                 >${oneToDisplay.name}</a> 
         </span>`;
           } else {
-            onThePage.innerHTML = ` <div id="featured-title">FEATURED</div> <span id="db-feature-title"><a href="${oneToDisplay.url}" style="color:inherit;"
+            onThePage.innerHTML = ` <div id="featured-title">FEATURED</div> <span id="db-feature-title"><a href="${oneToDisplay.url}" target="_blank" style="color:inherit;"
                 >${oneToDisplay.name}</a> 
         </span>`;
           }
