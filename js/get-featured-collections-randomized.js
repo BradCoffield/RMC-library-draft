@@ -1,4 +1,4 @@
-let libraryFeaturedCollections = (function() {
+let libraryFeaturedCollectionsRandomized = (function() {
   let featuredCollectionsRef = db.collection("featured-collections");
   let theCollections = [];
 
