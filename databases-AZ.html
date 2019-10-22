@@ -126,6 +126,13 @@ layout: databases-pages
  
 {%include firebase-setup.html%}
 <script>
+  var fun = function() {
+    console.log("eyyy");
+     
+db.collection("databases-tracking").doc("AAAS Science")
+  .set({date:"today", clicks: 1}, { merge: true });
+    return false;
+  };
         let databasesRef = db.collection("databases");
         let proxyRef = db.collection("proxyServerUrl");
         let theProxyUrl = "";
@@ -175,7 +182,7 @@ layout: databases-pages
             dbNode[0].insertAdjacentHTML(
               "beforeend",
               ` <li class="database-li">
-                <h5><a href="${this.dbData.url}" target="_blank">${this.dbData.name}</a></h5>
+                <h5><a href="${this.dbData.url}" target="_blank" onclick="fun()">${this.dbData.name}</a></h5>
                 <p class="database-description">${this.dbData.description}</p>
                 <ul class="database-list-resourcetype">
                 ${contentTypesMap.join("")}
