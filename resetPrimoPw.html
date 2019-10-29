@@ -1,0 +1,31 @@
+<form
+  name="form1"
+  id="form1"
+  action="https://trails-rocky.alma.exlibrisgroup.com/view/resetPw"
+  method="post"
+  class="form"
+>
+  <div class="instructionText">
+    Please enter your primary identifier or registered email address below
+  </div>
+  <input placeholder="User ID" name="primary_id" id="primary_id_value" />
+  <div class="orText">Or</div>
+  <input
+    placeholder="example@domain.com"
+    type="email"
+    name="email"
+    id="email_value"
+    style="font-size: 17px;"
+  />
+  <div
+    style="font-size: 17px; font-family: Arial, verdana; font-style: normal; font-weight: 400; font-variant: normal; letter-spacing: 0px; white-space: nowrap; position: absolute; left: -9999px; visibility: hidden;"
+  ></div>
+  <input type="hidden" name="userId" value="USER_ID_HIDDEN_PARAMETER" />
+  <input type="hidden" name="institutionCode" value="01TRAILS_ROCKY" />
+  <input
+    type="hidden"
+    name="backUrl"
+    value="https://rocky-primo.hosted.exlibrisgroup.com/primo-explore/search?vid=01TRAILS_ROCKY"
+  />
+  <button type="submit" name="send">Send</button>
+</form>
