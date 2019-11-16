@@ -11,14 +11,14 @@ input[type="checkbox"] {
   display: inline-block;
 //   font-family: "Roboto Slab", serif;
 //   font-weight: bold;
-//   font-family: monospace;
-  font-size: 1.2rem;
-  text-transform: uppercase;
+  // font-family: monospace;
+  font-size: 16px;
+  // text-transform: uppercase;
 //   text-align: center;
 
 //   padding: 1rem;
 
-//   color: #a77b0e;
+  color: #333;
   background: white;
 
   cursor: pointer;
@@ -32,17 +32,18 @@ input[type="checkbox"] {
 //   color: #7c5a0b;
 }
 
-.lbl-toggle::before {
-  content: " ";
-  display: inline-block;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 5px solid currentColor;
-  vertical-align: middle;
-  margin-right: 0.7rem;
-  transform: translateY(-2px);
-  transition: transform 0.2s ease-out;
-}
+// .lbl-toggle::before {
+//   content: " "!important;
+//   display: inline-block;
+//   border-top: 5px solid transparent;
+//   border-bottom: 5px solid transparent;
+//   border-left: 5px solid currentColor;
+//   vertical-align: middle;
+//   margin-right: 0.7rem;
+//   transform: translateY(-2px);
+//   transition: transform 0.2s ease-out;
+//   color:#777;
+// }
 
 .toggle:checked + .lbl-toggle::before {
   transform: rotate(90deg) translateX(-3px);

@@ -767,20 +767,20 @@ font-size: 1.6rem;
   }
   
   //Tooltip text container
-  &::before {
-    position: absolute;
-    top: -80px;
-    left: -180px;
-    background-color: #d1d4d2;
-    border-radius: 5px;
-    color: #222;
-    font-family: $serif;
-    content: attr(aria-label); //This pulls in the text from the element with the tooltip
-    padding: 2rem;
-    text-transform: none;
-    transition: all 0.5s ease;
-    width: 280px;
-  }
+  // &::before {
+  //   position: absolute;
+  //   top: -80px;
+  //   left: -180px;
+  //   background-color: #d1d4d2;
+  //   border-radius: 5px;
+  //   color: #222;
+  //   font-family: $serif;
+  //   content: attr(aria-label); //This pulls in the text from the element with the tooltip
+  //   padding: 2rem;
+  //   text-transform: none;
+  //   transition: all 0.5s ease;
+  //   width: 280px;
+  // }
 
   // //Tooltip arrow
   // &::after {
@@ -798,25 +798,25 @@ font-size: 1.6rem;
   // }
   
   //Setting up the transition
-  &::before,
-  &::after {
-    color: #333;
-    // color: #efefef;
-    font-family: monospace;
-    font-size: 16px;
-    opacity: 0;
-    pointer-events: none;
-    text-align: center;
-  }
+  // &::before,
+  // &::after {
+  //   color: #333;
+  //   // color: #efefef;
+  //   font-family: monospace;
+  //   font-size: 16px;
+  //   opacity: 0;
+  //   pointer-events: none;
+  //   text-align: center;
+  // }
   
-  //Triggering the transition
-  &:focus::before,
-  &:focus::after,
-  &:hover::before,
-  &:hover::after {
-    opacity: 1;
-    transition: all 0.75s ease;
-  }
+  // //Triggering the transition
+  // &:focus::before,
+  // &:focus::after,
+  // &:hover::before,
+  // &:hover::after {
+  //   opacity: 1;
+  //   transition: all 0.75s ease;
+  // }
 }
 
 #equestrian-periodicals li, #equestrian-books li {
@@ -846,8 +846,8 @@ p {font-size: 16px;font-family: $sans-serif;color: #222;}
 span::before {content:none!important}
 
 
-#library-things *::before{
-  content:none;}
+// #library-things *::before{
+//   content:none;}
   
   .row .rowHero {
   padding:0px;}
