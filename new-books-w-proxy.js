@@ -55,6 +55,10 @@ const newBooksFirestoreWrap = (function () {
             doThings(rawData, ourRandoms);
           }
         });
+      }).catch((error) => {
+        // For some reason, nearly every fresh page load something fails such that the ISBN is undefined. This catches the error and re-runs everything. Failsafes below so that we can only re-run a few times.
+        console.log("ERROR!",error);
+        runThestuff()
       });
 
     function doThings(results, randoms) {
@@ -128,6 +132,7 @@ const newBooksFirestoreWrap = (function () {
   let maxstuffRuns = 10;
   let totalstuffRuns = 0;
   if (totalstuffRuns < maxstuffRuns) {
+    console.log("New books attempts:", totalstuffRuns+=1);
     runThestuff();
   }
 })();
