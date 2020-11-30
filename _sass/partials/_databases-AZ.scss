@@ -29,7 +29,7 @@
 }
 
   .database-list-resourcetype {
-    margin-top:-1rem!important;
+    margin-top:-.1rem!important;
   li {
     display: inline;
     color: #777;
@@ -100,4 +100,16 @@
 }
 .be-plain:hover,.be-plain:focus{
   color:inherit;
+}
+
+#content-type-filters button{
+  margin: .9rem .5rem;
+  border:0px;
+  font-size: 14px;
+  background-color: white;
+}
+
+#nav-selects li {
+margin: .5rem;
+display: inline-block;
 }

@@ -50,9 +50,12 @@ class AlphabeticalDatabase {
     //need to include element-item and the content types as classes so they work with isotope filtering. need to remove spaces from the content types. Also, need to remove illegal characters from the ct for classnames
     let contentTypesNoSpaces = this.dbData.content_types.map((ctt) => {
       //get rid of CSS unsafe characters
-      let stepOne = ctt.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~]/g, '');
-     return stepOne.replace(/\s+/g, '');
-    })
+      let stepOne = ctt.replace(
+        /[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~]/g,
+        ""
+      );
+      return stepOne.replace(/\s+/g, "");
+    });
     dbNode[0].insertAdjacentHTML(
       "beforeend",
       ` <li class="database-li element-item ${contentTypesNoSpaces.join(" ")}">
@@ -82,7 +85,7 @@ proxyRef
         //  console.log(doc.data());
         //  console.log(name, doc.data().use_proxy);
         let content_types = doc.data().content_types;
-         
+
         let description = doc.data().description;
         //need to check if use_proxy is true and if so append it to the db url
         let url = "";
@@ -116,10 +119,13 @@ proxyRef
 
 function CTAppend(ct) {
   ct.forEach((ctEH) => {
-    let noBadCharacters = ctEH.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~]/g, '');
-    let withoutSpaces = noBadCharacters.replace(/\s+/g, '');
+    let noBadCharacters = ctEH.replace(
+      /[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~]/g,
+      ""
+    );
+    let withoutSpaces = noBadCharacters.replace(/\s+/g, "");
     console.log(ctEH, withoutSpaces);
-     
+
     let dbNode = document.getElementById("content-type-filters");
     dbNode.insertAdjacentHTML(
       "beforeend",
@@ -130,46 +136,46 @@ function CTAppend(ct) {
       `
     );
   });
-    // init Isotope
-    var iso = new Isotope(".for-filtering", {
-      itemSelector: ".element-item",
-      layoutMode: "vertical",
-    });
-    
-    // filter functions
-    var filterFns = {};
-    
-    // bind filter button click
-    var filtersElem = document.querySelector(".filters-button-group");
-    filtersElem.addEventListener("click", function (event) {
+  // init Isotope
+  var iso = new Isotope(".for-filtering", {
+    itemSelector: ".element-item",
+    layoutMode: "vertical",
+  });
+
+  // filter functions
+  var filterFns = {};
+
+  // bind filter button click
+  var filtersElem = document.querySelector(".filters-button-group");
+  filtersElem.addEventListener("click", function (event) {
+    // only work with buttons
+    if (!matchesSelector(event.target, "button")) {
+      console.log("ohhhhh");
+      return;
+    }
+    var filterValue = event.target.getAttribute("data-filter");
+    // use matching filter function
+    filterValue = filterFns[filterValue] || filterValue;
+    iso.arrange({ filter: filterValue });
+  });
+
+  // change is-checked class on buttons
+  var buttonGroups = document.querySelectorAll(".filters-button-group");
+  for (var i = 0, len = buttonGroups.length; i < len; i++) {
+    var buttonGroup = buttonGroups[i];
+    console.log("ehhhh", buttonGroup);
+    radioButtonGroup(buttonGroup);
+  }
+
+  function radioButtonGroup(buttonGroup) {
+    buttonGroup.addEventListener("click", function (event) {
       // only work with buttons
+      console.log("hi");
       if (!matchesSelector(event.target, "button")) {
-        console.log("ohhhhh");
         return;
       }
-      var filterValue = event.target.getAttribute("data-filter");
-      // use matching filter function
-      filterValue = filterFns[filterValue] || filterValue;
-      iso.arrange({ filter: filterValue });
+      buttonGroup.querySelector(".is-checked").classList.remove("is-checked");
+      event.target.classList.add("is-checked");
     });
-    
-    // change is-checked class on buttons
-    var buttonGroups = document.querySelectorAll(".filters-button-group");
-    for (var i = 0, len = buttonGroups.length; i < len; i++) {
-      var buttonGroup = buttonGroups[i];
-      console.log("ehhhh", buttonGroup);
-      radioButtonGroup(buttonGroup);
-    }
-    
-    function radioButtonGroup(buttonGroup) {
-      buttonGroup.addEventListener("click", function (event) {
-        // only work with buttons
-        console.log("hi");
-        if (!matchesSelector(event.target, "button")) {
-          return;
-        }
-        buttonGroup.querySelector(".is-checked").classList.remove("is-checked");
-        event.target.classList.add("is-checked");
-      });
-    }
+  }
 }
