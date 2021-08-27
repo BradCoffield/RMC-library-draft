@@ -18,11 +18,11 @@ let libraryFeaturedCollections = (function() {
       console.log(doc.data());
 
       let theStuff = `<a href="${doc.data().url}">
-                <div class="col-lg-4 ">
+                <div class="col-lg-6 " style="margin-bottom: 2rem">
                 <div class="card">
                     <img src="${doc.data().image}" alt="${doc.data().imageAlt}">
                     <h4>${doc.data().name}</h4>
-                    <p style="font-size: 16px">${doc.data().description}</p>
+                    <p style="font-size: 16px;min-height:100px;display:block;">${doc.data().description}</p>
                     <a href="${doc.data().url}" class="blue-button">${
         doc.data().buttonLabel
       }</a>
