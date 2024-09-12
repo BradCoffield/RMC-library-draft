@@ -1,0 +1,98 @@
+
+<div id="hours-teensy-for-nav"><a href="/library/library-hours/"> <i class="far fa-clock"></i> <span id="hours-1">Today's Hours:</span> <span id="hours-grid" class="hours-grid" style="color: #111;font-family: 'Roboto Condensed', sans-serif"></span></a></div>			</div>
+		</div>
+	<script>
+		//====set up date/time variables (moments.js)
+
+		const date = moment();
+
+		//format it so it's in plain english
+		//e.g. Thursday, March 30, 2017
+		const today = date.format("dddd, MMMM D, YYYY");
+
+		//append today's date to empty div
+		jQuery("#todays-date").append(today);
+
+		//create variable to hold utc-style of today's date (moments.js)
+		const utc = date.format("YYYY-MM-DD");
+
+		//create variables for calendar address and api key
+		const calAddress =
+			"rocky.edu_1dp49oqqq33o04tsoeq7khug3g@group.calendar.google.com";
+		const keyAPI = "AIzaSyAuga19FE6rB700Ih0kBcQ4-PUFnaJHE1A";
+
+		//inject today's date in YYYY-MM-DD format to the API URL
+		//this url returns only the events scheduled for today
+		const googleCal = `https://www.googleapis.com/calendar/v3/calendars/${calAddress}/events?singleEvents=true&timeMin=${utc}T01:00:00-07:00&timeMax=${utc}T23:59:59-07:00&key=${keyAPI}`;
+
+		//===========MAIN PLUGIN FUNCTION=============
+		//takes response data from API (see const response below) and runs it
+		const displaySchedule = data => {
+			//returns an array that holds all calendar data for specific day (lodash.js)
+			const libraries = _.filter(response.responseJSON.items);
+
+			//sorted by reverse alphabetical order (lodash.js)
+			//const sorted = _.orderBy(libraries, "summary", "desc");
+
+			//and placed in a table
+			let tableHTML;
+			let weOpen = null;
+
+			//loops through each event in the sorted libraries array/google calendar events (lodash.js)
+			_.forEach(libraries, function(library) {
+			//if there is a dateTime key in the start and end of the calendar event
+			if (library.start.dateTime && library.end.dateTime) {
+				console.log("hihi ");
+
+				//takes given time string (ISO 8601), parses it to standard format, then returns formatted time (moments.js)
+				//e.g. "2017-03-30T21:00:00-07:00" -> "9 pm"
+				function timeChanger(time) {
+				const getDate = moment.parseZone(time);
+				const formatDate = getDate.format("hh:mma");
+				return formatDate;
+				}
+
+				//setting up variables to grab start and end times from the google calendar API
+				//put those times through time changer function
+				let startTime = timeChanger(library.start.dateTime);
+				let endTime = timeChanger(library.end.dateTime);
+
+				//creates table row for each event in the calendar array
+				//e.g. | Downtown | 8 am - 9 pm |
+				tableHTML = `${startTime} - ${endTime}`;
+				weOpen = `${startTime} - ${endTime}`;
+				console.log(weOpen);
+
+				//if there is no description in the event, skip it
+				//we occassionally have an employee add an event on accident, but they normally don't include a description; this skips that event
+			} else if (
+				(library.start.dateTime &&
+				library.end.dateTime &&
+				!library.description) ||
+				!library.description
+			) {
+				console.log("eh");
+				return;
+
+				//otherwise, it's closed! (dateTime returns undefined)
+			} else {
+				tableHTML = `Closedd`;
+			}
+			}); //end of foreach loop
+
+			// tableHTML += '</tbody>';
+
+			//empty old schedule tbody (may be unnecessary, but you never know) and replace with new tbody
+			jQuery(".hours-grid").empty();
+
+			if (weOpen != null) {
+				jQuery(".hours-grid").append(weOpen);
+			} else jQuery(".hours-grid").append("Closed");
+		}; //end display schedule function
+
+		//google calendar API request call
+		const response = jQuery.getJSON(googleCal, displaySchedule);
+		</script>
+				</div>
+<script type="text/javascript" src="https://rocky.edu/wp-content/themes/unicamp-child/js/moment.min.js" id="custom-moment-js"></script>
+<script type="text/javascript" src="https://rocky.edu/wp-content/themes/unicamp-child/js/lodash.min.js" id="custom-lodash-js"></script>
